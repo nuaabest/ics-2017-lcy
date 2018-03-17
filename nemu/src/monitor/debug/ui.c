@@ -37,6 +37,9 @@ static int cmd_q(char *args) {
 }
 
 static int cmd_help(char *args);
+static int cmd_si(char *args);
+static int cmd_info(char *args);
+static int cmd_x(char *args);
 
 static struct {
   char *name;
@@ -46,9 +49,10 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
-
+  { "si","Work it by single step and stop after N steps",cmd_si},
+  { "info","Print register state",cmd_info},
+  { "x","Scanning memory",cmd_x},
   /* TODO: Add more commands */
-
 };
 
 #define NR_CMD (sizeof(cmd_table) / sizeof(cmd_table[0]))
@@ -74,6 +78,58 @@ static int cmd_help(char *args) {
     printf("Unknown command '%s'\n", arg);
   }
   return 0;
+}
+
+static int cmd_si(char *args){
+	char *arg=strtok(NULL," ");
+	if(arg==NULL){
+		cpu_exec(1);
+		return 0;
+	}
+	int i=atoi(arg);
+	if(i>=15){
+		printf("The number should be allowed under 15\n");
+		cpu_exec(-1);
+	}
+	else if(i==1||i==0){
+		cpu_exec(1);
+		return 0;
+	}
+	else if(i==-1) cpu_exec(-1);
+	else cpu_exec(i);
+	return 0;
+}
+
+static int cmd_info(char *args){
+	char *arg=strtok(NULL," ");
+	if(strcmp(arg,"r")==0){
+		for(int i=0;i<8;i++){
+			printf("%s         0x%08x           %d\n",regsl[i],cpu.gpr[i]._32,cpu.gpr[i]._32);
+		}
+		printf("eip        0x%08x           %d\n",cpu.eip,cpu.eip);
+	}
+	return 0;
+}
+
+static int cmd_x(char *args){
+	char *arg=strtok(NULL," ");
+	int i=atoi(arg);
+	unsigned int j=0,m=0;
+	unsigned int p=0;
+	char *temp = strtok(NULL," ");
+	sscanf(temp,"%x",&j);
+	printf("Address          Big-Endian          Little-Endian\n");
+	for(int k=0;k<i;k++){
+		m=paddr_read(j,4);
+		printf("0x%08x        0x%08x           ",j,m);
+		for(int q=0;q<4;q++){
+			p=paddr_read(j+q,1);
+			printf("%02x  ",p);
+		}
+		printf("\n");
+		j=j+sizeof(int);
+	}
+	return 0;
 }
 
 void ui_mainloop(int is_batch_mode) {
