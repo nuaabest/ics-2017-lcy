@@ -106,7 +106,7 @@ static int cmd_info(char *args){
 		for(int i=0;i<8;i++){
 			printf("%s         0x%08x           %d\n",regsl[i],cpu.gpr[i]._32,cpu.gpr[i]._32);
 		}
-		printf("eip        0x%08x           %d\n",cpu.eip,cpu.eip);
+		printf("eip         0x%08x           %d\n",cpu.eip,cpu.eip);
 	}
 	return 0;
 }
@@ -118,7 +118,7 @@ static int cmd_x(char *args){
 	unsigned int p=0;
 	char *temp = strtok(NULL," ");
 	sscanf(temp,"%x",&j);
-	printf("Address          Big-Endian          Little-Endian\n");
+	printf("Address           Big-Endian          Little-Endian\n");
 	for(int k=0;k<i;k++){
 		m=paddr_read(j,4);
 		printf("0x%08x        0x%08x           ",j,m);
