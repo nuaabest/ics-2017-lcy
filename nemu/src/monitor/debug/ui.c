@@ -2,7 +2,7 @@
 #include "monitor/expr.h"
 #include "monitor/watchpoint.h"
 #include "nemu.h"
-
+#include "monitor/expr.h"
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -40,6 +40,7 @@ static int cmd_help(char *args);
 static int cmd_si(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
+static int cmd_p(char *args);
 
 static struct {
   char *name;
@@ -52,6 +53,7 @@ static struct {
   { "si","Work it by single step and stop after N steps",cmd_si},
   { "info","Print register state",cmd_info},
   { "x","Scanning memory",cmd_x},
+	{ "p","expression evaluation",cmd_p},
   /* TODO: Add more commands */
 };
 
@@ -130,6 +132,13 @@ static int cmd_x(char *args){
 		j=j+sizeof(int);
 	}
 	return 0;
+}
+
+uint32_t expr(char *e,bool *success);
+static int cmd_p(char *args){
+		bool succ=true;
+		expr(args,&succ);
+		return 0;
 }
 
 void ui_mainloop(int is_batch_mode) {
