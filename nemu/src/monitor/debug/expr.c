@@ -7,8 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ
-
+  TK_NOTYPE = 256,TK_EQ,PLUS,MINUS,MULTI,DIVIDE,LEFT,RIGHT
   /* TODO: Add more token types */
 
 };
@@ -23,7 +22,12 @@ static struct rule {
    */
 
   {" +", TK_NOTYPE},    // spaces
-  {"\\+", '+'},         // plus
+ 	{"\\+", '+'},         // plus
+	{"\\-", '-'},         // minus
+	{"\\*", '*'},         // multiply
+	{"/", '/'},           // divide
+	{"\\(", '('},         // left
+	{"\\)", ')'},         // right
   {"==", TK_EQ}         // equal
 };
 
@@ -80,6 +84,9 @@ static bool make_token(char *e) {
          */
 
         switch (rules[i].token_type) {
+//					case '+':{
+
+	//				 }
           default: TODO();
         }
 
