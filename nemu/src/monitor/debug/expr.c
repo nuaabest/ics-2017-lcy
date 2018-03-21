@@ -155,6 +155,9 @@ uint32_t expr(char *e, bool *success) {
   }
 	int length=sizeof(tokens)/sizeof(Token);
 	int p=0,q=length-1;
+
+printf("%d %d\n",p,q);
+
   /* TODO: Insert codes to evaluate the expression. */
   eval(p,q);
   return 0;
