@@ -108,6 +108,7 @@ static bool make_token(char *e) {
 							tokens[m].type=258;//"=="
 					}
           default:{
+							printf("%s",rules[i].regex);
 							tokens[m].type=NUMBER;
 							strcpy(tokens[m].str,rules[i].regex);
 							break;
@@ -137,10 +138,9 @@ static void eval(int p,int q){
 				     assert(0);
        }
 		   else{
-							// printf("dasfas");:wq
 
 						int num=atoi(tokens[p].str);
-			       printf("The result of the expression is:%d",num);
+			      printf("The result of the expression is:%d",num);
 			}
     
 	 }
