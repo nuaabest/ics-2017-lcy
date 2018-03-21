@@ -65,7 +65,8 @@ static bool make_token(char *e) {
   int position = 0;
   int i;
   regmatch_t pmatch;
-
+printf("23523");
+  
   nr_token = 0;
   while (e[position] != '\0') {
     /* Try all rules one by one. */
@@ -151,9 +152,6 @@ static void eval(int p,int q){
 
 uint32_t expr(char *e, bool *success) {
   if (!make_token(e)) {
-
-		printf("dgsdgs");
-
     *success = false;
     return 0;
   }
