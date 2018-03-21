@@ -96,7 +96,7 @@ static bool make_token(char *e) {
 							strcpy(tokens[i].str,rules[i].regex);
 					}
         }
-        break;
+//        break;
       }
     }
 
