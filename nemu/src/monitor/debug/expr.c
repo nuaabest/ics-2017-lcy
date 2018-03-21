@@ -91,9 +91,11 @@ static bool make_token(char *e) {
 					case '/':tokens[i].type='/';
           case '(':tokens[i].type='(';
           case ')':tokens[i].type=')';
-          default: TODO();
+          default:{
+							tokens[i].type=NUMBER;
+							strcpy(tokens[i].str,rules[i].regex);
+					}
         }
-
         break;
       }
     }
@@ -102,12 +104,11 @@ static bool make_token(char *e) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
     }
-  }
-
+	}
   return true;
 }
 
-static int eval(int p,int q){
+static void eval(int p,int q){
 		if(p>q){
          printf("Bad expression!\n");
 				 assert(0);
@@ -120,11 +121,9 @@ static int eval(int p,int q){
 		   else{
 						int num=atoi(tokens[p].str);
 			       printf("The result of the expression is:%d",num);
-			       return 0;
 			}
     
 	 }
-	 return 0;
 }
 
 
