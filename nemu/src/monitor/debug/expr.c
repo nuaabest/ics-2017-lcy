@@ -23,12 +23,12 @@ static struct rule {
 
   {" +", TK_NOTYPE},    // spaces
  	{"\\+", '+'},         // plus
-	{"\\-", '-'},         // minus
+	{"-", '-'},         // minus
 	{"\\*", '*'},         // multiply
 	{"/", '/'},           // divide
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
-	{"\\[1-9]{0,}",NUMBER},// number
+	{"[1-9]{0,}",NUMBER},// number
   {"==", TK_EQ}         // equal
 };
 
@@ -64,9 +64,7 @@ int nr_token;
 static bool make_token(char *e) {
   int position = 0;
   int i;
-  regmatch_t pmatch;
-printf("23523");
-  
+  regmatch_t pmatch;  
   nr_token = 0;
   while (e[position] != '\0') {
     /* Try all rules one by one. */
@@ -83,48 +81,48 @@ printf("23523");
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
+				static int m=0;
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
 					 }	
           case '+':{
-							tokens[i].type='+';break;
+							tokens[m].type='+';break;
 					}
 					case '-':{
-							tokens[i].type='-';	break;
+							tokens[m].type='-';	break;
 					}
 					case '*':{
-							tokens[i].type='*';	break;
+							tokens[m].type='*';	break;
 					}
 					case '/':{
-							tokens[i].type='/';	break;
+							tokens[m].type='/';	break;
 					}
           case '(':{
-							tokens[i].type='(';	break;
+							tokens[m].type='(';	break;
 					}
           case ')':{
-							tokens[i].type=')';	break;
+							tokens[m].type=')';	break;
 					}
 					case 258:{
-							tokens[i].type=258;//"=="
+							tokens[m].type=258;//"=="
 					}
           default:{
-							tokens[i].type=NUMBER;
-							strcpy(tokens[i].str,rules[i].regex);
+							tokens[m].type=NUMBER;
+							strcpy(tokens[m].str,rules[i].regex);
+							break;
 					}
         }
+				m++;
 				break;
       }
     }
-
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
     }
 
 	}
-
-
   return true;
 }
 
