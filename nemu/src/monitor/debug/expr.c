@@ -60,7 +60,7 @@ typedef struct token {
 
 Token tokens[32];
 int nr_token;
-
+static int m=0;
 static bool make_token(char *e) {
   int position = 0;
   int i;
@@ -81,7 +81,7 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-				static int m=0;
+//				static int m=0;
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
@@ -153,8 +153,7 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-	int length=(sizeof(tokens)/sizeof(Token));
-	int p=0,q=length-1;
+	int p=0,q=m;
 
 printf("%d %d\n",p,q);
 
