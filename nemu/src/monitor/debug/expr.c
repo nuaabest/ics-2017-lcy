@@ -83,13 +83,15 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-
+		//		int count=0;
         switch (rules[i].token_type) {
-								case 256:continue;
+					case 256:continue;
+          case 257:tokens[i].type=257;
+					case 258:tokens[i].type=258;
+					case 259:tokens[i].type=259;
+					case 260:tokens[i].type=260;
 
-
-
-          default: TODO();
+         // default: TODO();
         }
 
         break;
