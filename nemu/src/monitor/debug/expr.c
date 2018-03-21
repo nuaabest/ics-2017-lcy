@@ -139,7 +139,7 @@ static void eval(int p,int q){
 		   else{
 
 						int num=atoi(tokens[p].str);
-			      printf("The result of the expression is:%d",num);
+			      printf("The result of the expression is:%d\n",num);
 			}
     
 	 }
