@@ -1,5 +1,5 @@
 #include "nemu.h"
-
+#include "stdlib.h"
 /* We use the POSIX regex functions to process regular expressions.
  * Type 'man regex' for more information about POSIX regex functions.
  */
@@ -83,16 +83,15 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-		//		int count=0;
         switch (rules[i].token_type) {
-//					case ' ':continue;
- //         case '+':tokens[i].type='+';
-//					case '-':tokens[i].type='-';
-//					case '*':tokens[i].type='*';
-//					case '/':tokens[i].type='/';
-//          case '(':tokens[i].typr='(';
-//          case ')':tokens[i].type=')';
-         // default: TODO();
+					case ' ':continue;
+          case '+':tokens[i].type='+';
+					case '-':tokens[i].type='-';
+					case '*':tokens[i].type='*';
+					case '/':tokens[i].type='/';
+          case '(':tokens[i].type='(';
+          case ')':tokens[i].type=')';
+          default: TODO();
         }
 
         break;
@@ -108,14 +107,36 @@ static bool make_token(char *e) {
   return true;
 }
 
+static int eval(int p,int q){
+		if(p>q){
+         printf("Bad expression!\n");
+				 assert(0);
+		}
+   else if(p==q){
+	     if(tokens[p].str==NULL){
+		         printf("Bad expression\n");
+				     assert(0);
+       }
+		   else{
+						int num=atoi(tokens[p].str);
+			       printf("The result of the expression is:%d",num);
+			       return 0;
+			}
+    
+	 }
+	 return 0;
+}
+
+
+
 uint32_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
-
+	int length=sizeof(tokens)/sizeof(Token);
+	int p=0,q=length-1;
   /* TODO: Insert codes to evaluate the expression. */
-  TODO();
-
+  eval(p,q);
   return 0;
 }
