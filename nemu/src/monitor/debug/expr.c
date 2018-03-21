@@ -123,7 +123,7 @@ static bool make_token(char *e) {
 
 	}
 
-	printf("dgsdg");
+//	printf("dgsdg");
   return true;
 }
 
@@ -154,6 +154,9 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
+
+	printf("adfsdg");
+
 	int length=sizeof(tokens)/sizeof(Token);
 	int p=0,q=length-1;
   /* TODO: Insert codes to evaluate the expression. */
