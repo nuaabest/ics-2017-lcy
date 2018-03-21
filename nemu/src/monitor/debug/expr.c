@@ -153,7 +153,7 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-	int p=0,q=m;
+	int p=0,q=m-1;
 
 printf("%d %d\n",p,q);
 
