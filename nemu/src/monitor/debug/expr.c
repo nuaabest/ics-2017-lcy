@@ -107,9 +107,9 @@ static bool make_token(char *e) {
 							tokens[m].type=258;//"=="
 					}
           default:{
-							printf("%s",substr_start);
+						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
-						//	strcpy(tokens[m].str,e[position]);
+							strcpy(tokens[m].str,substr_start);
 							break;
 					}
         }
@@ -154,7 +154,7 @@ uint32_t expr(char *e, bool *success) {
   }
 	int p=0,q=m-1;
 
-printf("%d %d\n",p,q);
+//printf("%d %d\n",p,q);
 
   /* TODO: Insert codes to evaluate the expression. */
   eval(p,q);
