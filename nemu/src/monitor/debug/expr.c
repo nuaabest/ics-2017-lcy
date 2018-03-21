@@ -75,7 +75,7 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
+        Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
 
@@ -91,7 +91,7 @@ static bool make_token(char *e) {
 //					case '*':tokens[i].type='*';
 //					case '/':tokens[i].type='/';
 //          case '(':tokens[i].typr='(';
-          case ')':tokens[i].type=')';
+//          case ')':tokens[i].type=')';
          // default: TODO();
         }
 
