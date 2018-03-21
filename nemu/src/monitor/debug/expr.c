@@ -83,27 +83,44 @@ static bool make_token(char *e) {
          * of tokens, some extra actions should be performed.
          */
         switch (rules[i].token_type) {
-					case ' ':continue;
-          case '+':tokens[i].type='+';
-					case '-':tokens[i].type='-';
-					case '*':tokens[i].type='*';
-					case '/':tokens[i].type='/';
-          case '(':tokens[i].type='(';
-          case ')':tokens[i].type=')';
-					case 258:tokens[i].type=258;
+					case ' ':{
+							continue;	break;
+					 }	
+          case '+':{
+							tokens[i].type='+';break;
+					}
+					case '-':{
+							tokens[i].type='-';	break;
+					}
+					case '*':{
+							tokens[i].type='*';	break;
+					}
+					case '/':{
+							tokens[i].type='/';	break;
+					}
+          case '(':{
+							tokens[i].type='(';	break;
+					}
+          case ')':{
+							tokens[i].type=')';	break;
+					}
+					case 258:{
+							tokens[i].type=258;//"=="
+					}
           default:{
 							tokens[i].type=NUMBER;
 							strcpy(tokens[i].str,rules[i].regex);
+							break;
 					}
         }
-        break;
       }
     }
-i=0;  
+
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
     }
+
 	}
   return true;
 }
