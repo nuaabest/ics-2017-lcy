@@ -96,10 +96,10 @@ static bool make_token(char *e) {
 							strcpy(tokens[i].str,rules[i].regex);
 					}
         }
-//        break;
+        break;
       }
     }
-
+i=0;  
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
