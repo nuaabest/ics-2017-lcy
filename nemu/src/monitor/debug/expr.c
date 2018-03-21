@@ -90,6 +90,7 @@ static bool make_token(char *e) {
 					case '/':tokens[i].type='/';
           case '(':tokens[i].type='(';
           case ')':tokens[i].type=')';
+					case 258:tokens[i].type=258;
           default:{
 							tokens[i].type=NUMBER;
 							strcpy(tokens[i].str,rules[i].regex);
