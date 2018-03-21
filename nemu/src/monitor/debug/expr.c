@@ -81,7 +81,6 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-//				static int m=0;
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
@@ -108,9 +107,9 @@ static bool make_token(char *e) {
 							tokens[m].type=258;//"=="
 					}
           default:{
-							printf("%s",rules[i].regex);
+							printf("%s",substr_start);
 							tokens[m].type=NUMBER;
-							strcpy(tokens[m].str,rules[i].regex);
+						//	strcpy(tokens[m].str,e[position]);
 							break;
 					}
         }
