@@ -110,9 +110,9 @@ static bool make_token(char *e) {
           default:{
 							tokens[i].type=NUMBER;
 							strcpy(tokens[i].str,rules[i].regex);
-							break;
 					}
         }
+				break;
       }
     }
 
@@ -122,6 +122,8 @@ static bool make_token(char *e) {
     }
 
 	}
+
+	printf("dgsdg");
   return true;
 }
 
@@ -136,6 +138,8 @@ static void eval(int p,int q){
 				     assert(0);
        }
 		   else{
+							// printf("dasfas");:wq
+
 						int num=atoi(tokens[p].str);
 			       printf("The result of the expression is:%d",num);
 			}
