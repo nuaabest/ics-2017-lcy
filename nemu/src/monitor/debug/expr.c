@@ -109,7 +109,7 @@ static bool make_token(char *e) {
           default:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
-							strcpy(tokens[m].str,e+position-substr_len);
+							strncpy(tokens[m].str,substr_start,substr_len);
 							break;
 					}
         }
