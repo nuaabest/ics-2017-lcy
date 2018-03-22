@@ -148,7 +148,7 @@ static bool make_token(char *e) {
 
 static int check_parentheses(int p,int q){
 		int lag=0;
-		for(int cou=0;cou<m;cou++){
+		for(int cou=p;cou<q;cou++){
 				if(tokens[cou].type=='(')  lag++;
 				else if(tokens[cou].type==')')  lag--;
 				if(lag<0){
