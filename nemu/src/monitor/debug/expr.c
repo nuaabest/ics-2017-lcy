@@ -154,8 +154,6 @@ uint32_t expr(char *e, bool *success) {
   }
 	int p=0,q=m-1;
 
-//printf("%d %d\n",p,q);
-
   /* TODO: Insert codes to evaluate the expression. */
   eval(p,q);
   return 0;
