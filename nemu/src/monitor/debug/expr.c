@@ -89,19 +89,19 @@ static bool make_token(char *e) {
 							tokens[m].type='+';strcpy(tokens[m].str,"hello");break;
 					}
 					case '-':{
-							tokens[m].type='-';	break;
+							tokens[m].type='-';strcpy(tokens[m].str,"hello");break;
 					}
 					case '*':{
-							tokens[m].type='*';	break;
+							tokens[m].type='*';strcpy(tokens[m].str,"hello");	break;
 					}
 					case '/':{
-							tokens[m].type='/';	break;
+							tokens[m].type='/';strcpy(tokens[m].str,"hello");	break;
 					}
           case '(':{
-							tokens[m].type='(';	break;
+							tokens[m].type='(';strcpy(tokens[m].str,"hello");	break;
 					}
           case ')':{
-							tokens[m].type=')';	break;
+							tokens[m].type=')';strcpy(tokens[m].str,"hello");	break;
 					}
 					case 258:{
 							tokens[m].type=258;//"=="
