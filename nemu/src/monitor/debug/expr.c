@@ -132,7 +132,7 @@ static void eval(int p,int q){
 				 assert(0);
 		}
    else if(p==q){
-	     if(tokens[p].str==NULL){
+	     if(tokens[p].str=='\0'){
 		         printf("Bad expression\n");
 				     assert(0);
        }
