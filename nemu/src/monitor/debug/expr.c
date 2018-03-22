@@ -148,7 +148,7 @@ static bool make_token(char *e) {
 
 static int check_parentheses(int p,int q){
 		int lag=0;
-		printf("%d %d\n",p,q);
+//		printf("%d %d\n",p,q);
 		for(int cou=p;cou<q;cou++){
 				if(tokens[cou].type=='(')  lag++;
 				else if(tokens[cou].type==')')  lag--;
@@ -181,7 +181,7 @@ static void eval(int p,int q){
 
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
-		printf("true\n");	
+	 	 printf("true\n");	
 		 return eval(p+1,q-1);
 	 }
 	 //else{
@@ -199,7 +199,7 @@ uint32_t expr(char *e, bool *success) {
     return 0;
   }
 //	printf("%d",m);
-	int p=0,q=m-1;
+	int p=0,q=m;
 
   /* TODO: Insert codes to evaluate the expression. */
   eval(p,q);
