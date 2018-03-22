@@ -86,10 +86,10 @@ static bool make_token(char *e) {
 							continue;	break;
 					 }	
           case '+':{
-							tokens[m].type='+';strcpy(tokens[m].str,"hello");break;
+							tokens[m].type='+';strcpy(tokens[m].str,"hello"); break;
 					}
 					case '-':{
-							tokens[m].type='-';strcpy(tokens[m].str,"hello");break;
+							tokens[m].type='-';strcpy(tokens[m].str,"hello"); break;
 					}
 					case '*':{
 							tokens[m].type='*';strcpy(tokens[m].str,"hello");	break;
@@ -109,7 +109,7 @@ static bool make_token(char *e) {
           default:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
-							strcpy(tokens[m].str,substr_start);
+							strcpy(tokens[m].str,"hello");
 							break;
 					}
         }
@@ -121,8 +121,13 @@ static bool make_token(char *e) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
     }
-
 	}
+
+	for(int pp=0;pp<m;pp++){
+			printf("%d    ",tokens[pp].type);
+			printf("%s\n",tokens[pp].str);
+	}
+
   return true;
 }
 
