@@ -130,10 +130,10 @@ static bool make_token(char *e) {
 static int check_parentheses(int p,int q){
 		int lag=0;
 		for(int cou=0;cou<m-1;cou++){
-				if(tokens[cou].type=='(') lag++;
-//				printf("pp%d\n",lag);}
-				else lag--;
-//				printf("qq%d\n",lag);}
+				if(tokens[cou].type=='('){ lag++;
+				printf("pp%d\n",lag);}
+				else{ lag--;
+				printf("qq%d\n",lag);}
 				if(lag<0){
 						printf("The expression is wrong!\n");
 						return 0;
