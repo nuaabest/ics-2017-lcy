@@ -148,11 +148,11 @@ static bool make_token(char *e) {
 
 static int check_parentheses(int p,int q){
 		int lag=0;
-		for(int cou=0;cou<m-1;cou++){
+		for(int cou=0;cou<m;cou++){
 				printf("mm%d  %d\n",cou,tokens[cou].type);
 				if(tokens[cou].type=='('){ lag++;
 				printf("pp%d\n",lag);}
-				else{ lag--;
+				else if(tokens[cou].type==')'){ lag--;
 				printf("qq%d\n",lag);}
 				if(lag<0){
 						printf("The expression is wrong!\n");
