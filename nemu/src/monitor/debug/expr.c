@@ -58,7 +58,7 @@ typedef struct token {
   char str[32];
 } Token;
 
-Token tokens[32];
+Token tokens[32]={0};
 int nr_token;
 static int m=0;
 static bool make_token(char *e) {
@@ -152,7 +152,7 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-	printf("%d",m);
+//	printf("%d",m);
 	int p=0,q=m-1;
 
   /* TODO: Insert codes to evaluate the expression. */
