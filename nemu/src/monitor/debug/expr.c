@@ -86,30 +86,50 @@ static bool make_token(char *e) {
 							continue;	break;
 					 }	
           case '+':{
-							tokens[m].type='+';strcpy(tokens[m].str,"hello"); break;
+							tokens[m].type='+';
+							strcpy(tokens[m].str,"hello");
+						  tokens[m].str[substr_len] = '\0';	
+							break;
 					}
 					case '-':{
-							tokens[m].type='-';strcpy(tokens[m].str,"hello"); break;
+							tokens[m].type='-';
+							strcpy(tokens[m].str,"hello"); 
+							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case '*':{
-							tokens[m].type='*';strcpy(tokens[m].str,"hello");	break;
+							tokens[m].type='*';
+							strcpy(tokens[m].str,"hello");	
+							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case '/':{
-							tokens[m].type='/';strcpy(tokens[m].str,"hello");	break;
+							tokens[m].type='/';
+							strcpy(tokens[m].str,"hello");
+						  tokens[m].str[substr_len] = '\0';	
+							break;
 					}
           case '(':{
-							tokens[m].type='(';strcpy(tokens[m].str,"hello");	break;
+							tokens[m].type='(';
+							strcpy(tokens[m].str,"hello");	
+							tokens[m].str[substr_len] = '\0';
+							break;
 					}
           case ')':{
-							tokens[m].type=')';strcpy(tokens[m].str,"hello");	break;
+							tokens[m].type=')';
+							strcpy(tokens[m].str,"hello");	
+							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case 258:{
 							tokens[m].type=258;//"=="
+							tokens[m].str[substr_len] = '\0';
 					}
           default:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
+						  tokens[m].str[substr_len] = '\0';
 							break;
 					}
         }
@@ -122,12 +142,6 @@ static bool make_token(char *e) {
       return false;
     }
 	}
-
-	for(int pp=0;pp<m;pp++){
-			printf("%d    ",tokens[pp].type);
-			printf("%s\n",tokens[pp].str);
-	}
-
   return true;
 }
 
