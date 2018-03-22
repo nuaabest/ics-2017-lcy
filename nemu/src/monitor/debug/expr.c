@@ -58,7 +58,7 @@ typedef struct token {
   char str[32];
 } Token;
 
-Token tokens[32]={'\0'};
+Token tokens[32];
 int nr_token;
 static int m=0;
 static bool make_token(char *e) {
@@ -86,7 +86,7 @@ static bool make_token(char *e) {
 							continue;	break;
 					 }	
           case '+':{
-							tokens[m].type='+';break;
+							tokens[m].type='+';strcpy(tokens[m].str,"hello");break;
 					}
 					case '-':{
 							tokens[m].type='-';	break;
@@ -132,7 +132,7 @@ static void eval(int p,int q){
 				 assert(0);
 		}
    else if(p==q){
-	     if(tokens[p].str=='\0'){
+	     if(strcmp(tokens[p].str,"hello")==0){
 		         printf("Bad expression\n");
 				     assert(0);
        }
@@ -152,7 +152,7 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-	printf("%d",m);
+//	printf("%d",m);
 	int p=0,q=m-1;
 
   /* TODO: Insert codes to evaluate the expression. */
