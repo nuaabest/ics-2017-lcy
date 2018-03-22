@@ -182,6 +182,7 @@ static void eval(int p,int q){
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
 		printf("true\n");	
+		 return eval(p+1,q-1);
 	 }
 	 //else{
 //		else printf("gdgd");	
