@@ -162,7 +162,7 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
-static int eval(int p,int q){
+int eval(int p,int q){
 		int num1[m],op=0;
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
