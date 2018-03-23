@@ -146,7 +146,6 @@ static bool make_token(char *e) {
   return true;
 }
 
-
 static int check_parentheses(int p,int q){
 		int lag=0;
 //		printf("%d %d\n",p,q);
@@ -165,7 +164,6 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
-//static int num1[m];
 static void eval(int p,int q){
 		int num1[m];
 		for(int count=p;count<q;count++){
