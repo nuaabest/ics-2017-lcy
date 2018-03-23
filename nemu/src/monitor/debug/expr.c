@@ -149,7 +149,7 @@ static bool make_token(char *e) {
 static int check_parentheses(int p,int q){
 		int lag=0;
 //		printf("%d %d\n",p,q);
-		for(int cou=p;cou<q;cou++){
+		for(int cou=p;cou<=q;cou++){
 				if(tokens[cou].type=='(')  lag++;
 				else if(tokens[cou].type==')')  lag--;
 				if(lag<0){
