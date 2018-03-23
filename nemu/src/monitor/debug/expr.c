@@ -162,7 +162,10 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
+
 int eval(int p,int q){
+		//deal with '-'
+		
 		int num1[m],op=0;
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
@@ -184,7 +187,6 @@ int eval(int p,int q){
 			}
     
 	 }
-
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
 	 	// printf("true\n");	
@@ -226,9 +228,9 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
+
 //	printf("%d",m);
 	int p=0,q=m-1;
-
   /* TODO: Insert codes to evaluate the expression. */
   int result=eval(p,q);
 	printf("result=%d\n",result);
