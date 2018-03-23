@@ -167,7 +167,7 @@ int eval(int p,int q){
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d\n",p,q);
+		printf("%d  %d  %d\n",p,q,op);
 		static int sta=10;
 		for(int count=p;count<q;count++){
 				 if(tokens[count].type!=NUMBER){
@@ -224,7 +224,7 @@ uint32_t expr(char *e, bool *success) {
     return 0;
   }
 //	printf("%d",m);
-	int p=0,q=m;
+	int p=0,q=m-1;
 
   /* TODO: Insert codes to evaluate the expression. */
   eval(p,q);
