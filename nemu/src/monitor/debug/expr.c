@@ -171,11 +171,13 @@ int eval(int p,int q){
 		int sta=10;
 		for(int count=p;count<=q;count++){
 				 if(tokens[count].type!=NUMBER){
+								 printf("gdsdgsd\n");
               if(tokens[count].type=='('){
 											for(;count<=q;count++){
 															if(tokens[count].type==')') break;
 											}
 										//	count++;
+										printf("%d\n",count);
 							}
 							if(num1[count]<sta&&num1[count]!=3){
 											sta=num1[count];
