@@ -87,37 +87,37 @@ static bool make_token(char *e) {
 					 }	
           case '+':{
 							tokens[m].type='+';
-							strcpy(tokens[m].str,"hello");
+							strcpy(tokens[m].str,"1");
 						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
 					case '-':{
 							tokens[m].type='-';
-							strcpy(tokens[m].str,"hello"); 
+							strcpy(tokens[m].str,"1"); 
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '*':{
 							tokens[m].type='*';
-							strcpy(tokens[m].str,"hello");	
+							strcpy(tokens[m].str,"2");	
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '/':{
 							tokens[m].type='/';
-							strcpy(tokens[m].str,"hello");
+							strcpy(tokens[m].str,"2");
 						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
           case '(':{
 							tokens[m].type='(';
-							strcpy(tokens[m].str,"hello");	
+							strcpy(tokens[m].str,"3");	
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case ')':{
 							tokens[m].type=')';
-							strcpy(tokens[m].str,"hello");	
+							strcpy(tokens[m].str,"3");	
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
@@ -165,8 +165,12 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
+//static int num1[m];
 static void eval(int p,int q){
-
+		int num1[m];
+		for(int count=p;count<q;count++){
+				 num1[count]=atoi(tokens[count].str);
+		}
 		if(p>q){
          printf("Bad expression!\n");
 				 assert(0);
@@ -177,9 +181,7 @@ static void eval(int p,int q){
 				     assert(0);
        }
 		   else{
-
-						int num=atoi(tokens[p].str);
-			      printf("The result of the expression is:%d\n",num);
+			      printf("The result of the expression is:%d\n",num1[p]);
 			}
     
 	 }
@@ -191,7 +193,7 @@ static void eval(int p,int q){
 	 }//
 	 else{
 //		else printf("gdgd");	
-     
+          
 
 	 }
 
