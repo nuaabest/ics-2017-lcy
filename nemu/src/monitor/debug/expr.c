@@ -167,7 +167,7 @@ int eval(int p,int q){
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d  %d\n",p,q,op);
+		printf("%d  %d\n",p,q);
 		static int sta=10;
 		for(int count=p;count<q;count++){
 				 if(tokens[count].type!=NUMBER){
@@ -179,6 +179,7 @@ int eval(int p,int q){
 							if(num1[count]<sta){
 											sta=num1[count];
 											op=count;//the location tha the last character need to do
+											printf("%d   \n",op);
 							}
 				 }
 		}
