@@ -169,25 +169,6 @@ int eval(int p,int q){
 		}
 		printf("%d  %d\n",p,q);
 		int sta=10;
-		for(int count=p;count<=q;count++){
-				 if(tokens[count].type!=NUMBER){
-								 printf("gdsdgsd\n");
-								 printf("%d",tokens[count].type);
-              if(tokens[count].type==40){
-											for(;count<=q;count++){
-															if(tokens[count].type==')') break;
-											}
-										//	count++;
-										printf("%d\n",count);
-							}
-							if(num1[count]<sta&&num1[count]!=3){
-											sta=num1[count];
-											op=count;//the location tha the last character need to do
-											printf("%d   \n",op);
-							}
-				 }
-				 if(count==q) break;
-		}
 		if(p>q){
          printf("Bad expressioni99999!\n");
 				 assert(0);
@@ -211,7 +192,20 @@ int eval(int p,int q){
 	 }//
 	 else{
 //		printf("gdgd");
-       printf("mm%d             %dnn        %d\n",p,op,q);	
+        for(int count=p;count<=q;count++){
+							 if(tokens[count].type!=NUMBER){
+											 if(tokens[count].type=='('){
+															 for(;count<=q;count++){
+																			 if(tokens[count].type==')') break;
+															 }
+											 }
+											 if(num1[count]<sta&&num1[count]!=3){
+															 sta=num1[count];
+                               op=count;
+											 }
+							 }
+				}
+        printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
 			  int val2=eval(op+1,q);
 			  switch(tokens[op].type){
