@@ -169,7 +169,7 @@ static void eval(int p,int q){
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		for(int count=0;count<q-p;count++){
+		for(int count=p;count<q;count++){
 						printf("%d  ",num1[count]);
 		}
 		if(p>q){
