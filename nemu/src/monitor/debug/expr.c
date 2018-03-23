@@ -73,8 +73,8 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
-            i, rules[i].regex, position, substr_len, substr_len, substr_start);
+       // Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
+         //   i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
 
         /* TODO: Now a new token is recognized with rules[i]. Add codes
@@ -167,15 +167,15 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d\n",p,q);
+	//	printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
-         printf("Bad expressioni99999!\n");
+         printf("Bad expression!\n");
 				 assert(0);
 		}
    else if(p==q){
 	     if(strcmp(tokens[p].str,"1")==0||strcmp(tokens[p].str,"2")==0||strcmp(tokens[p].str,"3")==0){
-		         printf("Bad expressionnnnnnn\n");
+		         printf("Bad expression\n");
 				     assert(0);
        }
 		   else{
@@ -188,7 +188,7 @@ int eval(int p,int q){
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
 	 	// printf("true\n");	
-		 printf("dsgsd\n");
+		// printf("dsgsd\n");
 		 return eval(p+1,q-1);
 	 }//
 	 else{
@@ -206,7 +206,7 @@ int eval(int p,int q){
 											 }
 							 }
 				}
-        printf("mm%d             %dnn        %d\n",p,op,q);	
+       // printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
 			  int val2=eval(op+1,q);
 			  switch(tokens[op].type){
@@ -231,6 +231,6 @@ uint32_t expr(char *e, bool *success) {
 
   /* TODO: Insert codes to evaluate the expression. */
   int result=eval(p,q);
-	printf("result=%d",result);
+	printf("result=%d\n",result);
   return 0;
 }
