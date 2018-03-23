@@ -125,13 +125,14 @@ static bool make_token(char *e) {
 							tokens[m].type=258;//"=="
 							tokens[m].str[substr_len] = '\0';
 					}
-          default:{
+          case 257:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
 						  tokens[m].str[substr_len] = '\0';
 							break;
 					}
+					default : TODO();
         }
 				m++;
 				break;
@@ -149,6 +150,9 @@ static bool make_token(char *e) {
 static int check_parentheses(int p,int q){
 		int lag=0;
 //		printf("%d %d\n",p,q);
+  	if(tokens[p].type!='('){
+				return 0;
+		}
 		for(int cou=p;cou<q;cou++){
 				if(tokens[cou].type=='(')  lag++;
 				else if(tokens[cou].type==')')  lag--;
@@ -162,6 +166,7 @@ static int check_parentheses(int p,int q){
 }
 
 static void eval(int p,int q){
+
 		if(p>q){
          printf("Bad expression!\n");
 				 assert(0);
@@ -181,13 +186,14 @@ static void eval(int p,int q){
 
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
-	 	 printf("true\n");	
+	 	// printf("true\n");	
 		 return eval(p+1,q-1);
-	 }
-	 //else{
+	 }//
+	 else{
 //		else printf("gdgd");	
+     
 
-	 //
+	 }
 
 }
 
