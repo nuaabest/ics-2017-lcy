@@ -164,25 +164,26 @@ static int check_parentheses(int p,int q){
 
 int eval(int p,int q){
 		int num1[m],op=0;
-		for(int count=p;count<q;count++){
+		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
 		printf("%d  %d\n",p,q);
 		int sta=10;
-		for(int count=p;count<q;count++){
+		for(int count=p;count<=q;count++){
 				 if(tokens[count].type!=NUMBER){
               if(tokens[count].type=='('){
-											for(;count<q;count++){
+											for(;count<=q;count++){
 															if(tokens[count].type==')') break;
 											}
-											count++;
+										//	count++;
 							}
-							if(num1[count]<sta){
+							if(num1[count]<sta&&num1[count]!=3){
 											sta=num1[count];
 											op=count;//the location tha the last character need to do
 											printf("%d   \n",op);
 							}
 				 }
+				 if(count==q) break;
 		}
 		if(p>q){
          printf("Bad expressioni99999!\n");
