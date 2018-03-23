@@ -172,6 +172,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 if(tokens[count].type!=NUMBER){
 								 printf("gdsdgsd\n");
+								 printf("%d",tokens[count].type);
               if(tokens[count].type=='('){
 											for(;count<=q;count++){
 															if(tokens[count].type==')') break;
