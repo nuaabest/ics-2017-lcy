@@ -186,7 +186,7 @@ static int eval(int p,int q){
 				 assert(0);
 		}
    else if(p==q){
-	     if(strcmp(tokens[p].str,"hello")==0){
+	     if(strcmp(tokens[p].str,"1")==0||strcmp(tokens[p].str,"2")==0||strcmp(tokens[p].str,"3")==0){
 		         printf("Bad expression\n");
 				     assert(0);
        }
