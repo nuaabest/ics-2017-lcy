@@ -168,7 +168,7 @@ int eval(int p,int q){
 				 num1[count]=atoi(tokens[count].str);
 		}
 		printf("%d  %d\n",p,q);
-		static int sta=10;
+		int sta=10;
 		for(int count=p;count<q;count++){
 				 if(tokens[count].type!=NUMBER){
               if(tokens[count].type=='('){
