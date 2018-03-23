@@ -175,6 +175,7 @@ int eval(int p,int q){
 											for(;count<q;count++){
 															if(tokens[count].type==')') break;
 											}
+											count++;
 							}
 							if(num1[count]<sta){
 											sta=num1[count];
@@ -201,6 +202,7 @@ int eval(int p,int q){
    else if(check_parentheses(p,q)==true){
 		//	return eval(p+1,q-1);
 	 	// printf("true\n");	
+		 printf("dsgsd\n");
 		 return eval(p+1,q-1);
 	 }//
 	 else{
