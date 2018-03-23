@@ -206,9 +206,10 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-//		printf("gdgd");	
+//		printf("gdgd");
+       printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
-			  int val2=eval(op+1,p);
+			  int val2=eval(op+1,q);
 			  switch(tokens[op].type){
 								case '+':return val1+val2;
 								case '-':return val1-val2;
