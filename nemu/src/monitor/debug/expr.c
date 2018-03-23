@@ -195,7 +195,7 @@ static void eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-//		else printf("gdgd");	
+		printf("gdgd");	
           
 
 	 }
