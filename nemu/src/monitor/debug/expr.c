@@ -167,6 +167,7 @@ static int eval(int p,int q){
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
+		printf("%d  %d\n",p,q);
 		static int sta=10;
 		for(int count=p;count<q;count++){
 				 if(tokens[count].type!=NUMBER){
@@ -182,7 +183,7 @@ static int eval(int p,int q){
 				 }
 		}
 		if(p>q){
-         printf("Bad expression!\n");
+         printf("Bad expressioni99999!\n");
 				 assert(0);
 		}
    else if(p==q){
@@ -216,8 +217,6 @@ static int eval(int p,int q){
 	 }
    return 0;
 }
-
-
 
 uint32_t expr(char *e, bool *success) {
   if (!make_token(e)) {
