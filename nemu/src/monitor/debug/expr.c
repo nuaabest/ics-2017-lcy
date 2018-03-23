@@ -149,9 +149,6 @@ static bool make_token(char *e) {
 static int check_parentheses(int p,int q){
 		int lag=0;
 //		printf("%d %d\n",p,q);
-  	if(tokens[p].type!='('){
-				return 0;
-		}
 		for(int cou=p;cou<q;cou++){
 				if(tokens[cou].type=='(')  lag++;
 				else if(tokens[cou].type==')')  lag--;
@@ -159,6 +156,7 @@ static int check_parentheses(int p,int q){
 						printf("The expression is wrong!\n");
 						return 0;
 				}
+				if(lag==0&&cou!=q) return 0;
 		}
 		if(lag==0) return 1;
 		else return 0;
@@ -169,9 +167,13 @@ static void eval(int p,int q){
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
+		
 		for(int count=p;count<q;count++){
-						printf("%d  ",num1[count]);
+				 if(tokens[count].type!=NUMBER){
+
+				 }
 		}
+
 		if(p>q){
          printf("Bad expression!\n");
 				 assert(0);
