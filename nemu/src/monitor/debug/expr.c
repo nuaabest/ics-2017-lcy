@@ -162,18 +162,25 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
-static void eval(int p,int q){
-		int num1[m];
+static int eval(int p,int q){
+		int num1[m],op=0;
 		for(int count=p;count<q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		
+		static int sta=10;
 		for(int count=p;count<q;count++){
 				 if(tokens[count].type!=NUMBER){
-
+              if(tokens[count].type=='('){
+											for(;count<q;count++){
+															if(tokens[count].type==')') break;
+											}
+							}
+							if(num1[count]<sta){
+											sta=num1[count];
+											op=count;//the location tha the last character need to do
+							}
 				 }
 		}
-
 		if(p>q){
          printf("Bad expression!\n");
 				 assert(0);
@@ -195,11 +202,19 @@ static void eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-		printf("gdgd");	
-          
+//		printf("gdgd");	
+        int val1=eval(p,op-1);
+			  int val2=eval(op+1,p);
+			  switch(tokens[op].type){
+								case '+':return val1+val2;
+								case '-':return val1-val2;
+								case '*':return val1*val2;
+								case '/':return val1/val2;
+								default :assert(0);
+				}	
 
 	 }
-
+   return 0;
 }
 
 
