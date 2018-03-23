@@ -230,6 +230,7 @@ uint32_t expr(char *e, bool *success) {
 	int p=0,q=m-1;
 
   /* TODO: Insert codes to evaluate the expression. */
-  eval(p,q);
+  int result=eval(p,q);
+	printf("result=%d",result);
   return 0;
 }
