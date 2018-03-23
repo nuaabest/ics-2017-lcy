@@ -179,7 +179,8 @@ int eval(int p,int q){
 				     assert(0);
        }
 		   else{
-			      printf("The result of the expression is:%d\n",num1[p]);
+			     // printf("The result of the expression is:%d\n",num1[p]);
+						return num1[p];
 			}
     
 	 }
