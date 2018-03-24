@@ -255,12 +255,10 @@ int eval(int p,int q){
 																			q--;
 														}
 												}
-
-                       
-											 else if(num1[count]<sta&&num1[count]!=3){
+											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-									//						 printf("%d\n",op);
+															 printf("%d\n",op);
 											 }
 							 }
 				}
