@@ -209,7 +209,7 @@ int eval(int p,int q){
 																							 break;}
 															 }
 											 }
-											 /*
+											 
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
 																 if(tokens[count+1].type==NUMBER){
@@ -245,10 +245,9 @@ int eval(int p,int q){
 																				p--;q--;
 														}
 												}
-*/
 
                        
-												if(num1[count]<sta&&num1[count]!=3){
+											 else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
 															 printf("%d\n",op);
