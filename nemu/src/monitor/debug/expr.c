@@ -216,6 +216,7 @@ int eval(int p,int q){
 											 }
 											 
 											 else  if(tokens[count].type=='-'){
+															if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
 															if(count==p){
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
