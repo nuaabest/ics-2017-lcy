@@ -218,7 +218,7 @@ int eval(int p,int q){
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
 																			//	p++;
-																				for(int i=count;i<q-p;i++){
+																				for(int i=p;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],strl,10);
 																							  sprintf(str1,"%d",num1[i]);
@@ -263,7 +263,7 @@ int eval(int p,int q){
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-															 printf("%d  %d\n",op,sta);
+															 printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
