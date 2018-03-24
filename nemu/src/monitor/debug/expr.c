@@ -235,6 +235,7 @@ int eval(int p,int q){
 																								tokens[i].type=tokens[i+1].type;
 																								 strcpy(tokens[i].str,tokens[i].str);
 																				}
+																				printf("sfasga\n");
 																			  for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
 																								tokens[ok].type=TK_NOTYPE;
