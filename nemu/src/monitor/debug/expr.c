@@ -209,19 +209,18 @@ int eval(int p,int q){
 															 for(;count<=q;count++){
 																			 if(tokens[count].type=='(') abc++;
 																			 else if(tokens[count].type==')') abc--;
-																			 if(tokens[count].type==')'&&abc==0){
-																							//printf("%d\n",count);
+																			 if(tokens[count].type==')'&&abc==0){																							//printf("%d\n",count);
 																							 break;}
 															 }
 											 }
 											 
 											 else  if(tokens[count].type=='-'){
-															if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
 															if(count==p){
+																 if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
 																			//	p++;
-																				for(int i=p;i<q;i++){
+																				for(int i=p;i<=q;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],strl,10);
 																							  sprintf(str1,"%d",num1[i]);
@@ -242,7 +241,7 @@ int eval(int p,int q){
 														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
 																				num1[count+1]=-num1[count+1];
 																			//	p++;
-																				for(int i=p;i<q;i++){
+																				for(int i=p;i<=q;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],str1,10);
 																							  sprintf(str1,"%d",num1[i]);
