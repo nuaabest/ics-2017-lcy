@@ -28,7 +28,7 @@ static struct rule {
 	{"/", '/'},           // divide
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
-	{"[1-9]{0,}",NUMBER},// number
+	{"\\-{0,1}[0-9]{1,}",NUMBER},// number
   {"==", TK_EQ}         // equal
 };
 
@@ -223,6 +223,7 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}
+																				count--;
 																				p--;q--;
 																}	
 														 }
@@ -240,6 +241,7 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}	
+																				count--;
 																				p--;q--;
 														}
 												}
