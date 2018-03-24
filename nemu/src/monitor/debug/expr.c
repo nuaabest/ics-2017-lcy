@@ -171,7 +171,7 @@ int neg_num(int p,int q){
 
 int eval(int p,int q){
 		//deal with '-'
-		int lag=0;//,abc=0;
+		int lag=0,abc=0;
 		int num1[m],op=0;
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
@@ -202,9 +202,11 @@ int eval(int p,int q){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
-																			// if(tokens[count].type=='(') abc++;
-																			// else abc--;
-																			 if(tokens[count].type==')') break;
+																			 if(tokens[count].type=='(') abc++;
+																			 else abc--;
+																			 if(tokens[count].type==')'&&abc==0){
+																							printf("%d\n",count);
+																							 break;}
 															 }
 											 }
 											 /*
