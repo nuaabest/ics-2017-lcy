@@ -254,7 +254,12 @@ int eval(int p,int q){
 																			//	p--;
 																			q--;
 														}
-												}
+														else if(num1[count]<=sta&&num1[count]!=3){
+																	 sta=num1[count];
+																 op=count;
+															printf("%d     %dgsdg\n",op,sta);
+														}		
+											 }
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
