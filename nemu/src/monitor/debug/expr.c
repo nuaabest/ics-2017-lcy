@@ -252,11 +252,11 @@ uint32_t expr(char *e, bool *success) {
 	if(lag==1){ 
 					result=eval(p+1,q);
 					result=-result;
-					printf("%d\n",result);
+					printf("result=%d\n",result);
 	}
 	else{
 					result=eval(p,q);
-	printf("result=%d\n",result);
+					printf("result=%d\n",result);
 	}
   return 0;
 }
