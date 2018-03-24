@@ -198,6 +198,7 @@ int eval(int p,int q){
     
 	 }
    else if(check_parentheses(p,q)==true){
+					 printf("fasfasasfas\n");
 		 return eval(p+1,q-1);
 	 }//
 	 else{
