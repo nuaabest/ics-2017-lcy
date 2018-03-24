@@ -221,7 +221,7 @@ int eval(int p,int q){
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],strl,10);
-																							 sprintf(str1,"%d",num1[i]);
+																							  sprintf(str1,"%d",num1[i]);
 																								tokens[i].type=tokens[i+1].type;
 																								strcpy(tokens[i].str,str1);
 																				}
