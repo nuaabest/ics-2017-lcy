@@ -217,6 +217,7 @@ int eval(int p,int q){
 															if(count==p){
 																 if(check_parentheses(p+1,q)==1){
 																				 int number=eval(p+1,q);
+																				 number=-number;
 																				 return number;
 																 }
 																 if(tokens[count+1].type==NUMBER){
