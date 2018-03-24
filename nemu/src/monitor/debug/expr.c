@@ -190,8 +190,9 @@ int eval(int p,int q){
        }
 		   else{
 			     // printf("The result of the expression is:%d\n",num1[p]);
-						return num1[p];
 						printf("%d   ewr\n",num1[p]);
+							 return num1[p];
+						
 			}
     
 	 }
