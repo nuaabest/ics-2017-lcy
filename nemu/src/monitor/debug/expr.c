@@ -191,6 +191,7 @@ int eval(int p,int q){
 		   else{
 			     // printf("The result of the expression is:%d\n",num1[p]);
 						return num1[p];
+						printf("%d   ewr\n",num1[p]);
 			}
     
 	 }
@@ -223,7 +224,7 @@ int eval(int p,int q){
 																				for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
 																								tokens[ok].type=TK_NOTYPE;
-																								strcpy(tokens[ok].str,"hello");
+																								strcpy(tokens[ok].str,"\0");
 																				}
 																			//	p--;
 																			q--;
@@ -241,7 +242,7 @@ int eval(int p,int q){
 																			  for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
 																								tokens[ok].type=TK_NOTYPE;
-																								strcpy(tokens[ok].str,"hello");
+																								strcpy(tokens[ok].str,"\0");
 																				}	
 																			//	p--;
 																			q--;
@@ -252,7 +253,7 @@ int eval(int p,int q){
 											 else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
-															 printf("%d\n",op);
+									//						 printf("%d\n",op);
 											 }
 							 }
 				}
