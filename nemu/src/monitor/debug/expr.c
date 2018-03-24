@@ -173,6 +173,7 @@ int eval(int p,int q){
 		//deal with '-'
 		int lag=0,abc=0;
 		int num1[m],op=0;
+		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
@@ -207,7 +208,7 @@ int eval(int p,int q){
 																			 if(tokens[count].type=='(') abc++;
 																			 else if(tokens[count].type==')') abc--;
 																			 if(tokens[count].type==')'&&abc==0){
-																							printf("%d\n",count);
+																							//printf("%d\n",count);
 																							 break;}
 															 }
 											 }
@@ -219,8 +220,10 @@ int eval(int p,int q){
 																			//	p++;
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
+																							//	itoa(num1[i],strl,10);
+																							 sprintf(str1,"%d",num1[i]);
 																								tokens[i].type=tokens[i+1].type;
-																								strcpy(tokens[i].str,tokens[i+1].str);
+																								strcpy(tokens[i].str,str1);
 																				}
 																				for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
@@ -228,10 +231,7 @@ int eval(int p,int q){
 																								strcpy(tokens[ok].str,"\0");
 																				}
 																			//	p--;
-																			for(int m=0;m<3;m++){
-																							printf("hhh%s  ",tokens[m].str);
-																			}
-																			printf("\n2352352\n");
+																	//		printf("\n2352352\n");
 																			q--;
 																}	
 														 }
@@ -241,8 +241,10 @@ int eval(int p,int q){
 																			//	p++;
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
+																							//	itoa(num1[i],str1,10);
+																							  sprintf(str1,"%d",num1[i]);
 																								tokens[i].type=tokens[i+1].type;
-																								 strcpy(tokens[i].str,tokens[i+1].str);
+																								strcpy(tokens[i].str,str1);
 																				}
 																			  for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
