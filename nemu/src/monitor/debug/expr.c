@@ -228,6 +228,7 @@ int eval(int p,int q){
 																								strcpy(tokens[ok].str,"\0");
 																				}
 																			//	p--;
+																			printf("2352352\n");
 																			q--;
 																}	
 														 }
