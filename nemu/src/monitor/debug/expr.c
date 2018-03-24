@@ -228,7 +228,10 @@ int eval(int p,int q){
 																								strcpy(tokens[ok].str,"\0");
 																				}
 																			//	p--;
-																			printf("2352352\n");
+																			for(int m=0;m<3;m++){
+																							printf("hhh%d  ",num1[m]);
+																			}
+																			printf("\n2352352\n");
 																			q--;
 																}	
 														 }
