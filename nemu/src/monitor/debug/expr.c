@@ -223,16 +223,24 @@ int eval(int p,int q){
    return 0;
 }
 
+int neg_num(int p,int q){
+				if(tokens[p].type=='-'&&check_parentheses(p+1,q)==true){
+								return 1;
+				}
+				return 0;
+				
+}
 uint32_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
-
 //	printf("%d",m);
 	int p=0,q=m-1;
+	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
   int result=eval(p,q);
+	if(lag==1) result=-result;
 	printf("result=%d\n",result);
   return 0;
 }
