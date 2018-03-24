@@ -228,7 +228,7 @@ int eval(int p,int q){
 																}	
 														 }
 															
-														 else if((tokens[count+1].type=='('||tokens[count].type==NUMBER)&&((tokens[count-1].type!=')')&&tokens[count-1].type!=NUMBER)){
+														 else if((tokens[count+1].type=='('||tokens[count].type==NUMBER)&&tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
 																				num1[count+1]=-num1[count+1];
 																				p++;
 																				for(int i=count;i<q-p;i++){
@@ -251,6 +251,7 @@ int eval(int p,int q){
 												else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
+															 printf("%d\n",op);
 											 }
 							 }
 				}
