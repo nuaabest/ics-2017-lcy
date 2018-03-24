@@ -220,7 +220,7 @@ int eval(int p,int q){
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																								tokens[i].type=tokens[i+1].type;
-																								strcpy(tokens[i].str,tokens[i].str);
+																								strcpy(tokens[i].str,tokens[i+1].str);
 																				}
 																				for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
@@ -242,7 +242,7 @@ int eval(int p,int q){
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																								tokens[i].type=tokens[i+1].type;
-																								 strcpy(tokens[i].str,tokens[i].str);
+																								 strcpy(tokens[i].str,tokens[i+1].str);
 																				}
 																			  for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
