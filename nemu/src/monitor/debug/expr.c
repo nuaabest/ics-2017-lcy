@@ -214,7 +214,7 @@ int eval(int p,int q){
 															if(count==p){
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
-																				p++;
+																			//	p++;
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																								tokens[i].type=tokens[i+1].type;
@@ -225,13 +225,14 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}
-																				p--;q--;
+																			//	p--;
+																			q--;
 																}	
 														 }
 															
 														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
 																				num1[count+1]=-num1[count+1];
-																				p++;
+																			//	p++;
 																				for(int i=count;i<q-p;i++){
 																								num1[i]=num1[i+1];
 																								tokens[i].type=tokens[i+1].type;
@@ -242,7 +243,8 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}	
-																				p--;q--;
+																			//	p--;
+																			q--;
 														}
 												}
 
