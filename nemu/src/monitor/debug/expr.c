@@ -162,10 +162,16 @@ static int check_parentheses(int p,int q){
 		else return 0;
 }
 
+int neg_num(int p,int q){
+				if(tokens[p].type=='-'&&check_parentheses(p+1,q)==true){
+							return 1;
+				}
+				return 0;
+}
 
 int eval(int p,int q){
 		//deal with '-'
-		
+		int lag=0;
 		int num1[m],op=0;
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
@@ -202,7 +208,11 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')') break;
 															 }
 											 }
-											 if(num1[count]<sta&&num1[count]!=3){
+                       if(((tokens[count].type=='-')&&(tokens[count+1].type!='('))&&((tokens[count-1].type=='*')||(tokens[count-1].type=='-')||(tokens[count-1].type=='+')||(tokens[count-1].type=='/'))){
+															 num1[count+1]=-num1[count+1];
+											 }
+
+											 else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
 											 }
@@ -210,7 +220,9 @@ int eval(int p,int q){
 				}
        // printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
+				if((lag=neg_num(p,op-1))==1){val1=-val1;}
 			  int val2=eval(op+1,q);
+				if((lag=neg_num(op+1,q))==1){ val2=-val2;}
 			  switch(tokens[op].type){
 								case '+':return val1+val2;
 								case '-':return val1-val2;
@@ -223,13 +235,6 @@ int eval(int p,int q){
    return 0;
 }
 
-int neg_num(int p,int q){
-				if(tokens[p].type=='-'&&check_parentheses(p+1,q)==true){
-								return 1;
-				}
-				return 0;
-				
-}
 uint32_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
