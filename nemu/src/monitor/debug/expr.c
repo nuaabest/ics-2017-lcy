@@ -211,6 +211,10 @@ int eval(int p,int q){
                        if(((tokens[count].type=='-')&&(tokens[count+1].type!='('))&&((tokens[count-1].type=='*')||(tokens[count-1].type=='-')||(tokens[count-1].type=='+')||(tokens[count-1].type=='/'))){
 															 num1[count+1]=-num1[count+1];
 											 }
+											 else if(count==p&&(tokens[count+1].type!=')')){
+															 num1[count+1]=-num1[count+1];
+											 }
+
 
 											 else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
