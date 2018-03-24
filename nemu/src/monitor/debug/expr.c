@@ -194,9 +194,6 @@ int eval(int p,int q){
     
 	 }
    else if(check_parentheses(p,q)==true){
-		//	return eval(p+1,q-1);
-	 	// printf("true\n");	
-		// printf("dsgsd\n");
 		 return eval(p+1,q-1);
 	 }//
 	 else{
@@ -208,15 +205,7 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')') break;
 															 }
 											 }
-                       if(((tokens[count].type=='-')&&(tokens[count+1].type!='('))&&((tokens[count-1].type=='*')||(tokens[count-1].type=='-')||(tokens[count-1].type=='+')||(tokens[count-1].type=='/'))){
-															 num1[count+1]=-num1[count+1];
-											 }
-											 else if(count==p&&(tokens[count+1].type!=')')){
-															 num1[count+1]=-num1[count+1];
-											 }
-
-
-											 else if(num1[count]<sta&&num1[count]!=3){
+											 if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
 											 }
