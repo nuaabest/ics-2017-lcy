@@ -177,7 +177,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d\n",p,q);
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -191,18 +191,16 @@ int eval(int p,int q){
        }
 		   else{
 			     // printf("The result of the expression is:%d\n",num1[p]);
-						printf("%d   ewr\n",num1[p]);
+					//	printf("%d   ewr\n",num1[p]);
 							 return num1[p];
 						
 			}
     
 	 }
    else if(check_parentheses(p,q)==true){
-					 printf("fasfasasfas\n");
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-					 printf("sasfas\n");
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
@@ -259,13 +257,13 @@ int eval(int p,int q){
 														else if(num1[count]<=sta&&num1[count]!=3){
 																	 sta=num1[count];
 																 op=count;
-															printf("%d     %dgsdg\n",op,sta);
+															//printf("%d     %dgsdg\n",op,sta);
 														}		
 											 }
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-															 printf("m%d n %d\n",op,sta);
+															 //printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
