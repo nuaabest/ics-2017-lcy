@@ -229,7 +229,7 @@ int eval(int p,int q){
 																				}
 																			//	p--;
 																			for(int m=0;m<3;m++){
-																							printf("hhh%d  ",num1[m]);
+																							printf("hhh%s  ",tokens[m].str);
 																			}
 																			printf("\n2352352\n");
 																			q--;
