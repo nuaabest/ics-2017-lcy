@@ -171,7 +171,7 @@ int neg_num(int p,int q){
 
 int eval(int p,int q){
 		//deal with '-'
-		int lag=0;
+		int lag=0,abc=0;
 		int num1[m],op=0;
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
@@ -197,15 +197,55 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-//		printf("gdgd");
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
-																			 if(tokens[count].type==')') break;
+																			 if(tokens[count].type=='(') abc++;
+																			 else abc--;
+																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
-											 if(num1[count]<sta&&num1[count]!=3){
+											 
+											 else  if(tokens[count].type=='-'){
+															if(count==p){
+																 if(tokens[count+1].type==NUMBER){
+															 					num1[count+1]=-num1[count+1];
+																				p++;
+																				for(int i=count;i<q-p;i++){
+																								num1[i]=num1[i+1];
+																								tokens[i].type=tokens[i+1].type;
+																								strcpy(tokens[i].str,tokens[i].str);
+																				}
+																				for(int ok=q-1;ok<q;ok++){
+																								num1[ok]='\0';
+																								tokens[ok].type=TK_NOTYPE;
+																								strcpy(tokens[ok].str,"hello");
+																				}
+																				p--;q--;
+																}	
+														 }
+															
+														 else if((tokens[count].type=='('||tokens[count].type==NUMBER)&&((tokens[count-1].type!=')')||tokens[count-1].type!=NUMBER)){
+																				num1[count+1]=-num1[count+1];
+																				p++;
+																				for(int i=count;i<q-p;i++){
+																								num1[i]=num1[i+1];
+																								tokens[i].type=tokens[i+1].type;
+																								 strcpy(tokens[i].str,tokens[i].str);
+																				}
+																			  for(int ok=q-1;ok<q;ok++){
+																								num1[ok]='\0';
+																								tokens[ok].type=TK_NOTYPE;
+																								strcpy(tokens[ok].str,"hello");
+																				}	
+																				p--;q--;
+														}
+												}
+
+
+                       
+												else if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
 											 }
