@@ -203,7 +203,7 @@ int eval(int p,int q){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
 																			 if(tokens[count].type=='(') abc++;
-																			 else abc--;
+																			 else if(tokens[count].type==')') abc--;
 																			 if(tokens[count].type==')'&&abc==0){
 																							printf("%d\n",count);
 																							 break;}
