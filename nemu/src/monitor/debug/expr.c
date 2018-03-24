@@ -207,7 +207,7 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
-											 
+											 /*
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
 																 if(tokens[count+1].type==NUMBER){
@@ -227,7 +227,7 @@ int eval(int p,int q){
 																}	
 														 }
 															
-														 else if((tokens[count+1].type=='('||tokens[count].type==NUMBER)&&tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
+														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
 																				num1[count+1]=-num1[count+1];
 																				p++;
 																				for(int i=count;i<q-p;i++){
@@ -235,7 +235,6 @@ int eval(int p,int q){
 																								tokens[i].type=tokens[i+1].type;
 																								 strcpy(tokens[i].str,tokens[i].str);
 																				}
-																				printf("sfasga\n");
 																			  for(int ok=q;ok<=q;ok++){
 																								num1[ok]='\0';
 																								tokens[ok].type=TK_NOTYPE;
@@ -244,10 +243,10 @@ int eval(int p,int q){
 																				p--;q--;
 														}
 												}
-
+*/
 
                        
-												else if(num1[count]<sta&&num1[count]!=3){
+												if(num1[count]<sta&&num1[count]!=3){
 															 sta=num1[count];
                                op=count;
 															 printf("%d\n",op);
