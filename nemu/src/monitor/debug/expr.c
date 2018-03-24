@@ -171,7 +171,7 @@ int neg_num(int p,int q){
 
 int eval(int p,int q){
 		//deal with '-'
-		int lag=0,abc=0;
+		int abc=0;
 		int num1[m],op=0;
 		char str1[32];
 		for(int count=p;count<=q;count++){
@@ -215,7 +215,7 @@ int eval(int p,int q){
 											 
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
-																// if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
+																if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
 																			//	p++;
@@ -270,9 +270,9 @@ int eval(int p,int q){
 				}
        // printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
-				if((lag=neg_num(p,op-1))==1){val1=-val1;}
+		//		if((lag=neg_num(p,op-1))==1){val1=-val1;}
 			  int val2=eval(op+1,q);
-				if((lag=neg_num(op+1,q))==1){ val2=-val2;}
+	//			if((lag=neg_num(op+1,q))==1){ val2=-val2;}
 			  switch(tokens[op].type){
 								case '+':return val1+val2;
 								case '-':return val1-val2;
