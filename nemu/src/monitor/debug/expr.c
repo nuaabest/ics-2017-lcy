@@ -223,7 +223,6 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}
-																				count--;
 																				p--;q--;
 																}	
 														 }
@@ -241,7 +240,6 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"hello");
 																				}	
-																				count--;
 																				p--;q--;
 														}
 												}
