@@ -283,6 +283,7 @@ int eval(int p,int q){
 															 		tokens[q].type=TK_NOTYPE;
 															 		strcpy(tokens[q].str,"\0");
 															 }
+															 q--;
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
