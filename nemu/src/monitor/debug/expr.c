@@ -47,6 +47,8 @@ void init_regex() {
   char error_msg[128];
   int ret;
 
+  printf("sdfsd");
+
   for (i = 0; i < NR_REGEX; i ++) {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
     if (ret != 0) {
