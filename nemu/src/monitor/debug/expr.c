@@ -130,22 +130,27 @@ static bool make_token(char *e) {
 					case 258:{
 							tokens[m].type=258;//"=="
 							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case 259:{
 							tokens[m].type=259;
- 							tokens[m].str[substr_len] = '\0';							
+ 							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case 260:{
 							tokens[m].type=260;
 							tokens[m].str[substr_len] = '\0';
+							break;
 				  }
 					case 261:{
 							tokens[m].type=261;
 							tokens[m].str[substr_len] = '\0';
+							break;
 				  }
 					case 262:{
 							tokens[m].type=262;
 							tokens[m].str[substr_len] = '\0';
+							break;
 					}
 					case 263:{
 							int neednum=0;
@@ -165,6 +170,7 @@ static bool make_token(char *e) {
 							printf("%d\n",neednum);
 							strcpy(tokens[m].str,need);
 							tokens[m].str[substr_len] = '\0';
+							break;
 					}
           case 257:{
 						//	printf("%s",substr_start);
