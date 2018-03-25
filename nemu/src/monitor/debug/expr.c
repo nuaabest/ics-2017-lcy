@@ -263,6 +263,10 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==TK_NOTYPE){
+															  for(int i=p;i<q;i++){
+																				                                    printf("%d ",num1[i]);
+										                                }
+
 															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
