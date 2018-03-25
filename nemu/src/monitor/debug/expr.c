@@ -272,7 +272,7 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==' '){
-															 for(int i=p;i<=q;i++){
+															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
 																			 tokens[i].type=tokens[i+1].type;
@@ -310,7 +310,7 @@ int eval(int p,int q){
 															
 														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER&&tokens[count-1].type!=REG){
 																				num1[count+1]=-num1[count+1];
-																				for(int i=p;i<=q;i++){
+																				for(int i=count;i<q;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],str1,10);
 																							  sprintf(str1,"%d",num1[i]);
