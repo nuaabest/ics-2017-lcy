@@ -147,7 +147,6 @@ static bool make_token(char *e) {
 							tokens[m].str[substr_len] = '\0';
 					}
 					case 263:{
-													 printf("fds\n");
 							int neednum=0;
 							char need[32];
 							tokens[m].type=263;
