@@ -55,7 +55,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-	printf("%s    ",rules[i].regex);
+	//	printf("%s    ",rules[i].regex);
   }
 }
 
@@ -74,7 +74,7 @@ static bool make_token(char *e) {
   nr_token = 0;
   while (e[position] != '\0') {
     /* Try all rules one by one. */
-    for (i = 0; i < NR_REGEX; i ++) {
+    for (i = 0; i < 14; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
