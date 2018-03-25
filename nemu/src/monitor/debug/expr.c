@@ -263,7 +263,7 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==TK_NOTYPE){
-															  for(int i=p;i<q;i++){
+															  for(int i=p;i<=q;i++){
 																				                                    printf("%d ",num1[i]);
 										                                }
 
@@ -278,7 +278,7 @@ int eval(int p,int q){
 															 		tokens[i].type=TK_NOTYPE;
 															 		strcpy(tokens[i].str,"\0");
 															 }
-															 for(int i=p;i<q;i++){
+															 for(int i=p;i<=q;i++){
 																			 printf("%d ",num1[i]);
 															 }
 															 count--;
