@@ -279,10 +279,11 @@ int eval(int p,int q){
 																			 strcpy(tokens[i].str,str1);
 															 }
 															 for(int i=q;i<=q;i++){
-															 		num1[q]='\0';
-															 		tokens[q].type=TK_NOTYPE;
-															 		strcpy(tokens[q].str,"\0");
+															 		num1[i]='\0';
+															 		tokens[i].type=TK_NOTYPE;
+															 		strcpy(tokens[i].str,"\0");
 															 }
+															 count--;
 															 q--;
 											 }
 											 else  if(tokens[count].type=='-'){
@@ -326,14 +327,14 @@ int eval(int p,int q){
 														else if(num1[count]<=sta&&num1[count]!=3){
 																	 sta=num1[count];
 																 op=count;
-				//											printf("%d     %dgsdg\n",op,sta);
+				                    //	printf("%d     %dgsdg\n",op,sta);
 														}		
 														
 											 }
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-					//										 printf("m%d n %d\n",op,sta);
+					                 //	printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
