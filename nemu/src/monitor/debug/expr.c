@@ -92,7 +92,7 @@ static bool make_token(char *e) {
         switch (rules[i].token_type) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
-							strcpy(tokens[m].str,"100");
+							strcpy(tokens[m].str,"hello");
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}	
