@@ -251,7 +251,7 @@ int eval(int p,int q){
 				     assert(0);
        }
 		   else{
-		//				printf("%d   ewr\n",num1[p]);
+						printf("%d   ewr\n",num1[p]);
 							 return num1[p];
 						
 			}
