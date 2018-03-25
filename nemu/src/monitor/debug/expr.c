@@ -98,7 +98,10 @@ static bool make_token(char *e) {
 		//		return 0;
         switch (rules[i].token_type) {
 					case ' ':{
-							continue;	break;
+							tokens[m].type=' ';
+							strcpy(tokens[m].str,"10");
+							tokens[m].str[substr_len] = '\0';
+							break;
 					 }	
           case '+':{
 							tokens[m].type='+';
