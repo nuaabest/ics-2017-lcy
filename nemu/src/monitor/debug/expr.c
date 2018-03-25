@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,NUMBER,TK_EQ
+  TK_NOTYPE = 256,NUMBER,TK_EQ,TK_NQ,TK_AND,TK_OR,TK_NO,REG
   /* TODO: Add more token types */
 
 };
@@ -28,8 +28,13 @@ static struct rule {
 	{"/", '/'},           // divide
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
-	{"[0-9]{0,}",NUMBER},// number
-  {"==", TK_EQ}         // equal
+	{"[0-9]{0,}",NUMBER},// numberx
+  {"==", TK_EQ},      	// equal
+	{"!=", TK_NQ},        //not equal
+	{"&&", TK_AND},       //and
+  {"||", TK_OR},	      //or
+	{"!",  TK_NO},        //no
+	{"\\$e[a-ds][xpi]",REG}  //register
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -125,6 +130,40 @@ static bool make_token(char *e) {
 							tokens[m].type=258;//"=="
 							tokens[m].str[substr_len] = '\0';
 					}
+					case 259:{
+							tokens[m].type=259;
+ 							tokens[m].str[substr_len] = '\0';							
+					}
+					case 260:{
+							tokens[m].type=260;
+							tokens[m].str[substr_len] = '\0';
+				  }
+					case 261:{
+							tokens[m].type=261;
+							tokens[m].str[substr_len] = '\0';
+				  }
+					case 262:{
+							tokens[m].type=262;
+							tokens[m].str[substr_len] = '\0';
+					}
+					case 263:{
+							int neednum=0;
+							char need[32];
+							tokens[m].type=263;
+              strncpy(need,substr_start,substr_len);
+							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
+							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
+							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
+							else if(strcmp(need,"$edx")==0) neednum=cpu.edx;
+						  else if(strcmp(need,"$ebx")==0) neednum=cpu.ebx;
+						  else if(strcmp(need,"$esp")==0) neednum=cpu.esp;
+							else if(strcmp(need,"$ebp")==0) neednum=cpu.ebp;
+							else if(strcmp(need,"$esi")==0) neednum=cpu.esi;
+							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
+							sprintf(need,"%d",neednum);
+							strcpy(tokens[m].str,need);
+							tokens[m].str[substr_len] = '\0';
+					}
           case 257:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
@@ -185,12 +224,11 @@ int eval(int p,int q){
 		}
    else if(p==q){
 	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
-		         printf("%d\n",tokens[p].type);
+		       //  printf("%d\n",tokens[p].type);
 	//						 printf("Bad expression\n");
 				     assert(0);
        }
 		   else{
-			     // printf("The result of the expression is:%d\n",num1[p]);
 		//				printf("%d   ewr\n",num1[p]);
 							 return num1[p];
 						
@@ -208,8 +246,7 @@ int eval(int p,int q){
 															 for(;count<=q;count++){
 																			 if(tokens[count].type=='(') abc++;
 																			 else if(tokens[count].type==')') abc--;
-																			 if(tokens[count].type==')'&&abc==0){																							//printf("%d\n",count);
-																							 break;}
+																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
 											 
@@ -218,7 +255,6 @@ int eval(int p,int q){
 																if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
 																 if(tokens[count+1].type==NUMBER){
 															 					num1[count+1]=-num1[count+1];
-																			//	p++;
 																				for(int i=p;i<=q;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],strl,10);
@@ -231,15 +267,13 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"\0");
 																				}
-																			//	p--;
 																	//		printf("\n2352352\n");
 																			q--;
 																}	
 														 }
 															
-														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER){
+														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER&&tokens[count-1].type!=REG){
 																				num1[count+1]=-num1[count+1];
-																			//	p++;
 																				for(int i=p;i<=q;i++){
 																								num1[i]=num1[i+1];
 																							//	itoa(num1[i],str1,10);
@@ -251,8 +285,7 @@ int eval(int p,int q){
 																								num1[ok]='\0';
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"\0");
-																				}	
-																			//	p--;
+																			  }
 																			q--;
 														}
 														else if(num1[count]<=sta&&num1[count]!=3){
@@ -270,9 +303,7 @@ int eval(int p,int q){
 				}
        // printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
-		//		if((lag=neg_num(p,op-1))==1){val1=-val1;}
 			  int val2=eval(op+1,q);
-	//			if((lag=neg_num(op+1,q))==1){ val2=-val2;}
 			  switch(tokens[op].type){
 								case '+':return val1+val2;
 								case '-':return val1-val2;
@@ -290,8 +321,14 @@ uint32_t expr(char *e, bool *success) {
     *success = false;
     return 0;
   }
-//	printf("%d",m);
 	int p=0,q=m-1;
+	/*
+	for(int i=0;i<m-1;i++){
+					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='(')){
+									tokens[i].type==DEREF;	
+					}
+	}*/
+
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
   int result;//t=eval(p,q);
