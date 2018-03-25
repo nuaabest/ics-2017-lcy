@@ -86,7 +86,7 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-				printf("fsd\n");
+				printf("fsd  %d\n",i);
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
@@ -153,6 +153,8 @@ static bool make_token(char *e) {
 							break;
 					}
 					case 263:{
+													 printf("                \n");
+													 return 0;
 							int neednum=0;
 							char need[32];
 							tokens[m].type=263;
