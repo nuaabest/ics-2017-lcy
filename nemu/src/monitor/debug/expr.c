@@ -229,7 +229,6 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("\n");
 		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
@@ -264,11 +263,6 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==TK_NOTYPE){
-															 for(int i=0;i<q;i++){
-																			 printf("%d ",num1[i]);
-																			 printf("\n");
-															 }
-
 															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
@@ -279,6 +273,9 @@ int eval(int p,int q){
 															 		num1[i]='\0';
 															 		tokens[i].type=TK_NOTYPE;
 															 		strcpy(tokens[i].str,"\0");
+															 }
+															 for(int i=p;i<q;i++){
+																			 printf("%d ",num1[i]);
 															 }
 															 count--;
 															 q--;
