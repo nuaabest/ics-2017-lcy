@@ -273,7 +273,7 @@ int eval(int p,int q){
 											 }
 											 else if(tokens[count].type==' '){
 															 for(int i=p;i<=q;i++){
-																			 num1[i]=num1[i+1];
+																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
 																			 tokens[i].type=tokens[i+1].type;
 																			 strcpy(tokens[i].str,str1);
