@@ -73,6 +73,8 @@ static bool make_token(char *e) {
 	for(int ii=0;ii<=m;ii++){
 					printf("%s\n",e+ii);
 	}
+	int mmm=sizeof(rules)/sizeof(rules[0]);
+	printf("  %d",mmm);
 
   while (e[position] != '\0') {
     /* Try all rules one by one. */
