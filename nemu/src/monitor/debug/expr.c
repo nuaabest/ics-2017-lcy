@@ -278,9 +278,11 @@ int eval(int p,int q){
 																			 tokens[i].type=tokens[i+1].type;
 																			 strcpy(tokens[i].str,str1);
 															 }
-															 num1[q]='\0';
-															 tokens[q].type=TK_NOTYPE;
-															 strcpy(tokens[q].str,"\0");
+															 for(int i=q;i<=q;i++){
+															 		num1[q]='\0';
+															 		tokens[q].type=TK_NOTYPE;
+															 		strcpy(tokens[q].str,"\0");
+															 }
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
@@ -301,7 +303,7 @@ int eval(int p,int q){
 																				}
 																	//		printf("\n2352352\n");
 																			q--;
-																}	
+																}	 
 														 }
 															
 														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER&&tokens[count-1].type!=REG){
