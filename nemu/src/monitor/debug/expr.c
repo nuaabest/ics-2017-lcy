@@ -93,7 +93,8 @@ static bool make_token(char *e) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"100");
-							//tokens[m].str[substr_len] = '\0';
+							printf("%s    \n",tokens[m].str);
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}	
           case '+':{
@@ -158,8 +159,6 @@ static bool make_token(char *e) {
 							break;
 					}
 					case 263:{
-													 printf("                \n");
-													 return 0;
 							int neednum=0;
 							char need[32];
 							tokens[m].type=263;
