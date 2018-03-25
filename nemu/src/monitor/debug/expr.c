@@ -267,8 +267,8 @@ int eval(int p,int q){
 																				                                    printf("%d ",num1[i]);
 										                                }
 
-															 for(int i=p;i<=q;i++){
-																			 num1[count]=num1[count+1];
+															 for(int i=count;i<=q;i++){
+																			 num1[i]=num1[i+1];
 																			 sprintf(str1,"%d",num1[i]);
 																			 tokens[i].type=tokens[i+1].type;
 																			 strcpy(tokens[i].str,str1);
