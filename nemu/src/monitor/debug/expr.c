@@ -93,7 +93,6 @@ static bool make_token(char *e) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"100");
-							printf("%s    %d\n",tokens[m].str,m);
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}	
@@ -232,6 +231,11 @@ int eval(int p,int q){
 				 printf("n%s %d ",tokens[count].str,tokens[count].type);
 				 printf("m%d  ",num1[count]);
 		}
+		printf("\n");
+		for(int i=p;i<q;i++){
+						printf("%s    ",tokens[i].str);
+		}
+
 		printf("\n");
 		printf("%d  %d\n",p,q);
 		int sta=10;
