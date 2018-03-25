@@ -47,7 +47,7 @@ void init_regex() {
   char error_msg[128];
   int ret;
 
-  printf("sdfsd");
+ // printf("sdfsd");
 
   for (i = 0; i < NR_REGEX; i ++) {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
@@ -55,7 +55,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-		printf("%s    ",rules[i].regex);
+	//	printf("%s    ",rules[i].regex);
   }
 }
 
@@ -73,9 +73,9 @@ static bool make_token(char *e) {
   regmatch_t pmatch;  
   nr_token = 0;
 
-	for(int ii=0;ii<=m;ii++){
-					printf("%s\n",e+ii);
-	}
+	//for(int ii=0;ii<=m;ii++){
+					printf("%s\n",e);
+//	}
 	int mmm=sizeof(rules)/sizeof(rules[0]);
 	printf("  %d",mmm);
 
