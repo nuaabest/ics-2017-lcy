@@ -70,7 +70,7 @@ static bool make_token(char *e) {
   regmatch_t pmatch;  
   nr_token = 0;
 
-	for(int ii=0;ii<m;ii++){
+	for(int ii=0;ii<=m;ii++){
 					printf("%s\n",e+ii);
 	}
 
