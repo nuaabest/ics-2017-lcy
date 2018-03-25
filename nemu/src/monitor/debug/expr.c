@@ -195,11 +195,6 @@ static bool make_token(char *e) {
       return false;
     }
 	}
-
-	for(int i=0;i<m;i++){
-					printf("%s     ",tokens[i].str);
-	}
-printf("\ndsgsdgs");
   return true;
 }
 
@@ -233,8 +228,6 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				 printf("n%s %d ",tokens[count].str,tokens[count].type);
-				 printf("m%d  ",num1[count]);
 		}
 		printf("\n");
 		printf("%d  %d\n",p,q);
