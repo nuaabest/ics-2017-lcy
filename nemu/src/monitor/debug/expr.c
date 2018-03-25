@@ -230,7 +230,8 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				 printf("m%d ",num1[count]);
+				 printf("n%s ",tokens[count].str);
+				 printf("m%d  ",num1[count]);
 		}
 		printf("\n");
 		printf("%d  %d\n",p,q);
@@ -267,7 +268,6 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==TK_NOTYPE){
-
 															 for(int i=0;i<q;i++){
 																			 printf("%d ",num1[i]);
 																			 printf("\n");
