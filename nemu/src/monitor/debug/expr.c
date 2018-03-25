@@ -97,12 +97,12 @@ static bool make_token(char *e) {
 				printf("fsd  %d   \n",i);
 		//		return 0;
         switch (rules[i].token_type) {
-					case ' ':{
-							tokens[m].type=' ';
+					case 256:{
+							tokens[m].type=256;
 							strcpy(tokens[m].str,"10");
 							tokens[m].str[substr_len] = '\0';
 							break;
-					 }	
+					}	
           case '+':{
 							tokens[m].type='+';
 							strcpy(tokens[m].str,"1");
