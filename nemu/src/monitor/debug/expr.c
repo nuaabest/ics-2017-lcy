@@ -265,12 +265,15 @@ int eval(int p,int q){
 															 }
 											 }
 											 else if(tokens[count].type==256){
+
+															 for(int i=0;i<q;i++){
+																			 printf("%d ",num1[i]);
+															 }
+
 															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
-																			 printf("%d\n",tokens[i].type);
 																			 tokens[i].type=tokens[i+1].type;
-																			 printf("%d\n",tokens[i].type);
 																			 strcpy(tokens[i].str,str1);
 															 }
 															 for(int i=q;i<=q;i++){
