@@ -93,7 +93,7 @@ static bool make_token(char *e) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"100");
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}	
           case '+':{
