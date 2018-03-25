@@ -86,15 +86,15 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
-            i, rules[i].regex, position, substr_len, substr_len, substr_start);
+  //      Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
+    //        i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
 
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-				printf("fsd  %d   \n",i);
+//				printf("fsd  %d   \n",i);
 		//		return 0;
         switch (rules[i].token_type) {
 					case 256:{
@@ -238,7 +238,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-//		printf("%d  %d\n",p,q);
+		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
