@@ -199,7 +199,7 @@ static bool make_token(char *e) {
 	for(int i=0;i<m;i++){
 					printf("%s     ",tokens[i].str);
 	}
-
+printf("\ndsgsdgs");
   return true;
 }
 
