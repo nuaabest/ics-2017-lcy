@@ -72,13 +72,6 @@ static bool make_token(char *e) {
   int i;
   regmatch_t pmatch;  
   nr_token = 0;
-
-	//for(int ii=0;ii<=m;ii++){
-					printf("%s\n",e);
-//	}
-	int mmm=sizeof(rules)/sizeof(rules[0]);
-	printf("  %d",mmm);
-
   while (e[position] != '\0') {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
@@ -275,7 +268,9 @@ int eval(int p,int q){
 															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
+																			 printf("%d\n",tokens[i].type);
 																			 tokens[i].type=tokens[i+1].type;
+																			 printf("%d\n",tokens[i].type);
 																			 strcpy(tokens[i].str,str1);
 															 }
 															 for(int i=q;i<=q;i++){
