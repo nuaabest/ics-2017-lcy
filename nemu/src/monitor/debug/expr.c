@@ -147,6 +147,7 @@ static bool make_token(char *e) {
 							tokens[m].str[substr_len] = '\0';
 					}
 					case 263:{
+													 printf("fds\n");
 							int neednum=0;
 							char need[32];
 							tokens[m].type=263;
@@ -161,9 +162,7 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$esi")==0) neednum=cpu.esi;
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
-
 							printf("%d\n",neednum);
-
 							strcpy(tokens[m].str,need);
 							tokens[m].str[substr_len] = '\0';
 					}
