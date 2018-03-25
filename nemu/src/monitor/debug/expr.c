@@ -55,7 +55,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-	//	printf("%s    ",rules[i].regex);
+	printf("%s    ",rules[i].regex);
   }
 }
 
@@ -132,35 +132,35 @@ static bool make_token(char *e) {
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
-					case 258:{
-							tokens[m].type=258;//"=="
+					case TK_EQ:{
+							tokens[m].type=TK_EQ;//"=="
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
-					case 259:{
-							tokens[m].type=259;
+					case TK_NQ:{
+							tokens[m].type=TK_NQ;
  							tokens[m].str[substr_len] = '\0';
 							break;
 					}
-					case 260:{
-							tokens[m].type=260;
+					case TK_AND:{
+							tokens[m].type=TK_AND;
 							tokens[m].str[substr_len] = '\0';
 							break;
 				  }
-					case 261:{
-							tokens[m].type=261;
+					case TK_OR:{
+							tokens[m].type=TK_OR;
 							tokens[m].str[substr_len] = '\0';
 							break;
 				  }
-					case 262:{
-							tokens[m].type=262;
+					case TK_NO:{
+							tokens[m].type=TK_NO;
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
-					case 263:{
+					case REG:{
 							int neednum=0;
 							char need[32];
-							tokens[m].type=263;
+							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
 							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
@@ -177,7 +177,7 @@ static bool make_token(char *e) {
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
-          case 257:{
+          case NUMBER:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
@@ -229,7 +229,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d\n",p,q);
+//		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -242,7 +242,7 @@ int eval(int p,int q){
 				     assert(0);
        }
 		   else{
-						printf("%d   ewr\n",num1[p]);
+					//	printf("%d   ewr\n",num1[p]);
 							 return num1[p];
 						
 			}
