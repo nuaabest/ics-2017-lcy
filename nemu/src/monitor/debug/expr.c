@@ -264,7 +264,7 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
-											 else if(tokens[count].type==' '){
+											 else if(tokens[count].type==256){
 															 for(int i=count;i<q;i++){
 																			 num1[count]=num1[count+1];
 																			 sprintf(str1,"%d",num1[i]);
