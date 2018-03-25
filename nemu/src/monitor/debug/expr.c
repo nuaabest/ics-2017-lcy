@@ -247,7 +247,7 @@ int eval(int p,int q){
    else if(p==q){
 	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
 		       //  printf("%d\n",tokens[p].type);
-	//						 printf("Bad expression\n");
+						 printf("Bad expression\n");
 				     assert(0);
        }
 		   else{
@@ -271,7 +271,14 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
-											 
+											 else if(tokens[count].type==' '){
+															 for(int i=p;i<=q;i++){
+																			 num1[i]=num1[i+1];
+																			 sprintf(str1,"%d",num1[i]);
+																			 tokens[i].type=tokens[i+1].type;
+																			 strcpy(tokens[i].str,str1);
+															 }
+											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
 																if(check_parentheses(p+1,q)==1) return -eval(p+1,q);
@@ -315,6 +322,7 @@ int eval(int p,int q){
 																 op=count;
 				//											printf("%d     %dgsdg\n",op,sta);
 														}		
+														
 											 }
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
