@@ -90,8 +90,8 @@ static bool make_token(char *e) {
 //				printf("fsd  %d   \n",i);
 		//		return 0;
         switch (rules[i].token_type) {
-					case 256:{
-							tokens[m].type=256;
+					case TK_NOTYPE:{
+							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"10");
 							tokens[m].str[substr_len] = '\0';
 							break;
@@ -232,6 +232,7 @@ int eval(int p,int q){
 				 num1[count]=atoi(tokens[count].str);
 				 printf("m%d ",num1[count]);
 		}
+		printf("\n");
 		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
@@ -265,10 +266,11 @@ int eval(int p,int q){
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
 											 }
-											 else if(tokens[count].type==256){
+											 else if(tokens[count].type==TK_NOTYPE){
 
 															 for(int i=0;i<q;i++){
 																			 printf("%d ",num1[i]);
+																			 printf("\n");
 															 }
 
 															 for(int i=count;i<q;i++){
