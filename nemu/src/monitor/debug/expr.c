@@ -16,11 +16,9 @@ static struct rule {
   char *regex;
   int token_type;
 } rules[] = {
-
   /* TODO: Add more rules.
    * Pay attention to the precedence level of different rules.
    */
-
   {" +", TK_NOTYPE},    // spaces
  	{"\\+", '+'},         // plus
 	{"-", '-'},         // minus
@@ -34,7 +32,7 @@ static struct rule {
 	{"&&", TK_AND},       //and
   {"||", TK_OR},	      //or
 	{"!",  TK_NO},        //no
-	{"\\$e[a-ds][xpi]",REG}  //register
+	{"\\$e[a-dsi][xpi]",REG}  //register
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -86,7 +84,8 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-				printf("fsd  %d\n",i);
+				printf("fsd  %d   \n",i);
+				return 0;
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
