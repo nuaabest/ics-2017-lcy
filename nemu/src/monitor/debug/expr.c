@@ -90,7 +90,7 @@ static bool make_token(char *e) {
          * of tokens, some extra actions should be performed.
          */
 				printf("fsd  %d   \n",i);
-				return 0;
+		//		return 0;
         switch (rules[i].token_type) {
 					case ' ':{
 							continue;	break;
