@@ -356,7 +356,7 @@ uint32_t expr(char *e, bool *success) {
 	int p=0,q=m-1;
 	
   for(int i=0;i<m;i++){
-					if(tokens[i].type=='*'&&(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
+					if(tokens[i].type=='*'&&i==0){//(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
 							printf("%111d  %d    %d\n",tokens[i].type,i,DEFER);
 				  }
