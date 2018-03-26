@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,TK_EQ,REG,NUMBER
+  TK_NOTYPE = 256,TK_EQ,REG,NUMBER,HEX
   /* TODO: Add more token types */
 
 };
@@ -33,6 +33,7 @@ static struct rule {
 //	{"!",  TK_NO},        //no
 	{"\\$e[a-dsi][xpi]",REG},  //register
 	{"[0-9]{0,}",NUMBER},// numberx
+	{"0x[A-Fa-f0-9]+",HEX} //
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -71,6 +72,7 @@ int m=0;
 static bool make_token(char *e) {
   int position = 0;
   int i;
+	char need[32];
   regmatch_t pmatch;  
   nr_token = 0;
   while (e[position] != '\0') {
@@ -79,8 +81,8 @@ static bool make_token(char *e) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-        Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
-            i, rules[i].regex, position, substr_len, substr_len, substr_start);
+       // Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
+         //   i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
@@ -138,7 +140,6 @@ static bool make_token(char *e) {
 					}
 					case REG:{
 							int neednum=0;
-							char need[32];
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
 							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
@@ -158,6 +159,12 @@ static bool make_token(char *e) {
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
+							break;
+					}
+					case HEX:{
+						  tokens[m].type=HEX;
+							strncpy(need,substr_start+2,substr_len-2);
+							printf("%s\n",need);
 							break;
 					}
 					default : TODO();
