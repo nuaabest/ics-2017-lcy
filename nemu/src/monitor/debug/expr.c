@@ -94,43 +94,43 @@ static bool make_token(char *e) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"9");
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}	
           case '+':{
 							tokens[m].type='+';
 							strcpy(tokens[m].str,"1");
-						  tokens[m].str[substr_len] = '\0';	
+						  //tokens[m].str[substr_len] = '\0';	
 							break;
 					}
 					case '-':{
 							tokens[m].type='-';
 							strcpy(tokens[m].str,"1"); 
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '*':{
 							tokens[m].type='*';
 							strcpy(tokens[m].str,"2");	
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '/':{
 							tokens[m].type='/';
 							strcpy(tokens[m].str,"2");
-						  tokens[m].str[substr_len] = '\0';	
+						  //tokens[m].str[substr_len] = '\0';	
 							break;
 					}
           case '(':{
 							tokens[m].type='(';
 							strcpy(tokens[m].str,"3");	
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case ')':{
 							tokens[m].type=')';
 							strcpy(tokens[m].str,"3");	
-							tokens[m].str[substr_len] = '\0';
+							//tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case TK_EQ:{
@@ -169,6 +169,7 @@ static bool make_token(char *e) {
 							sscanf(need,"%x",&hex);
               oct=hex;
 							sprintf(need,"%d",oct);
+							printf("%s\n",need);
 							strcpy(tokens[m].str,need);
 							break;
 					}
@@ -216,6 +217,7 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
+				 printf("%d ",num1[count]);
 		}
 		printf("%d  %d\n",p,q);
 		int sta=10;
@@ -242,7 +244,6 @@ int eval(int p,int q){
 	 else{
 					printf("sdgsd\n");
         for(int count=p;count<=q;count++){
-								printf("%d ",num1[count]);
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
