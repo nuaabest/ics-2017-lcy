@@ -56,7 +56,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-    printf("%s    ",rules[i].regex);
+   // printf("%s    ",rules[i].regex);
   }
 }
 
@@ -81,8 +81,8 @@ static bool make_token(char *e) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-       // Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
-         //   i, rules[i].regex, position, substr_len, substr_len, substr_start);
+        Log("match rules[%d] = \"  %s\" at position %d with len %d: %.*s",
+            i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
