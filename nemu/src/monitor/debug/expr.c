@@ -88,8 +88,8 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-				printf("fsd  %d   \n",i);
-				return 0;
+			//	printf("fsd  %d   \n",i);
+			//	return 0;
         switch (rules[i].token_type) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
