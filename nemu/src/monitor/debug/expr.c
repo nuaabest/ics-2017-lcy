@@ -269,6 +269,7 @@ int eval(int p,int q){
 											 }
 											 else if(tokens[count].type==DEFER){
 															 count++;
+															 printf("%dasd\n",count);
 															 if(tokens[count].type=='('){
 																			 for(;count<=q;count++){
 																							 if(tokens[count].type=='(') abc++;
