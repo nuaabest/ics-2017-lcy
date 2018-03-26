@@ -275,11 +275,11 @@ int eval(int p,int q){
 																							 if(tokens[count].type=='(') abc++;
 																							 else if(tokens[count].type==')') abc--;
 																							 if(tokens[count].type==')'&&abc==0){
-																											 return paddr_read(eval(count,count),4);
+																											 paddr_read(eval(count,count),4);
 																							 }
 																			 }
 															 }
-															 else return eval(count,count);
+															 else eval(count,count);
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
@@ -358,9 +358,7 @@ uint32_t expr(char *e, bool *success) {
   for(int i=0;i<m;i++){
 					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
-							printf("%111d  %d    %d\n",tokens[i].type,i,DEFER);
 				  }
-					printf("lll%d\n",tokens[i].type);
 	}
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
