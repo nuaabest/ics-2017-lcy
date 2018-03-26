@@ -240,7 +240,6 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-				printf("%d\n",tokens[p].type);
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
