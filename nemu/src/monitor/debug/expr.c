@@ -342,11 +342,11 @@ uint32_t expr(char *e, bool *success) {
 	int p=0,q=m-1;
 	
   if(tokens[p].type=='*'&&check_parentheses(p+1,q)==0){
+					printf("fsdf\n");
 			 int num=paddr_read(eval(p+1,q),4);
        printf("result=%d",num);
 			 return 0;
 	}
-
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
   int result;//t=eval(p,q);
