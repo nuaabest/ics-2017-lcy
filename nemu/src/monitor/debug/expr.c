@@ -151,17 +151,13 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$esi")==0) neednum=cpu.esi;
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
-							printf("%d\n",neednum);
 							strcpy(tokens[m].str,need);
-							printf("%s\n",tokens[m].str);
-							tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case NUMBER:{
 						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
-						  tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					default : TODO();
