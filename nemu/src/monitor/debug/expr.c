@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,TK_EQ,REG,HEX,NUMBER
+  TK_NOTYPE = 256,TK_EQ,REG,HEX,NUMBER,DEFER
   /* TODO: Add more token types */
 
 };
@@ -219,7 +219,7 @@ int eval(int p,int q){
 				// printf("%d ",num1[count]);
 		}
 		//printf("\n");
-		printf("%d  %d\n",p,q);
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -266,6 +266,19 @@ int eval(int p,int q){
 															 }
 															 count--;
 															 q--;
+											 }
+											 else if(tokens[count].type==DEFER){
+															 count++;
+															 if(tokens[count].type=='('){
+																			 for(;count<=q;count++){
+																							 if(tokens[count].type=='(') abc++;
+																							 else if(tokens[count].type==')') abc--;
+																							 if(tokens[count].type==')'&&abc==0){
+																											 return paddr_read(eval(count,count),4);
+																							 }
+																			 }
+															 }
+															 else return eval(count,count);
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
@@ -341,10 +354,9 @@ uint32_t expr(char *e, bool *success) {
   }
 	int p=0,q=m-1;
 	
-  if(tokens[p].type=='*'&&check_parentheses(p+1,q)==1){
-			 int num=paddr_read(eval(p+1,q),4);
-       printf("result=0x%08x=%d\n",num,num);
-			 return 0;
+  for(int i=0;i<m;i++){
+					if(tokens[i].type=='*'&&(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')) 
+							tokens[i].type=DEFER;
 	}
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
