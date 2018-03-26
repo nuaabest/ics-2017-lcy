@@ -26,13 +26,13 @@ static struct rule {
 	{"/", '/'},           // divide
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
-	{"[0-9]{0,}",NUMBER},// numberx
   {"==", TK_EQ},      	// equal
 	{"!=", TK_NQ},        //not equal
 	{"&&", TK_AND},       //and
   {"||", TK_OR},	      //or
 	{"!",  TK_NO},        //no
-	{"\\$e[a-dsi][xpi]",REG}  //register
+	{"\\$e[a-dsi][xpi]",REG},  //register
+	{"[0-9]{0,}",NUMBER},// numberx
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
@@ -55,7 +55,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-	//	printf("%s    ",rules[i].regex);
+		printf("%s    ",rules[i].regex);
   }
 }
 
