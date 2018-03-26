@@ -137,6 +137,7 @@ static int cmd_x(char *args){
 uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
 		bool succ=true;
+		printf("%s\n",args);
 		expr(args,&succ);
 		return 0;
 }
