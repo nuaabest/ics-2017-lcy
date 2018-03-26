@@ -228,7 +228,7 @@ int eval(int p,int q){
    else if(p==q){
 	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
 		       //  printf("%d\n",tokens[p].type);
-						 printf("Bad expression!\n");
+						 printf("Bad expression\n");
 				     assert(0);
        }
 		   else{
