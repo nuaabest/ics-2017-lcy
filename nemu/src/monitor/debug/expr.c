@@ -169,7 +169,7 @@ static bool make_token(char *e) {
 							sscanf(need,"%x",&hex);
               oct=hex;
 							sprintf(need,"%d",oct);
-							printf("%s\n",need);
+							//printf("%s\n",need);
 							strcpy(tokens[m].str,need);
 							break;
 					}
@@ -217,10 +217,10 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				 printf("%d ",num1[count]);
+				// printf("%d ",num1[count]);
 		}
-		printf("\n");
-		printf("%d  %d\n",p,q);
+		//printf("\n");
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -243,7 +243,7 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-					printf("sdgsd\n");
+				//	printf("sdgsd\n");
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
