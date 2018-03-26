@@ -94,43 +94,43 @@ static bool make_token(char *e) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"9");
-							//tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}	
           case '+':{
 							tokens[m].type='+';
 							strcpy(tokens[m].str,"1");
-						  //tokens[m].str[substr_len] = '\0';	
+						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
 					case '-':{
 							tokens[m].type='-';
 							strcpy(tokens[m].str,"1"); 
-							//tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '*':{
 							tokens[m].type='*';
 							strcpy(tokens[m].str,"2");	
-							//tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '/':{
 							tokens[m].type='/';
 							strcpy(tokens[m].str,"2");
-						  //tokens[m].str[substr_len] = '\0';	
+						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
           case '(':{
 							tokens[m].type='(';
 							strcpy(tokens[m].str,"3");	
-							//tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case ')':{
 							tokens[m].type=')';
 							strcpy(tokens[m].str,"3");	
-							//tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case TK_EQ:{
@@ -153,11 +153,9 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
 							strcpy(tokens[m].str,need);
-						//	printf("%s\n",tokens[m].str);
 							break;
 					}
           case NUMBER:{
-						//	printf("%s",substr_start);
 							tokens[m].type=NUMBER;
 							strncpy(tokens[m].str,substr_start,substr_len);
 							break;
@@ -168,12 +166,9 @@ static bool make_token(char *e) {
 						  tokens[m].type=HEX;
 							strncpy(need,substr_start,substr_len);
 							need[substr_len]= '\0';
-							//printf("%s\n",need);
 							sscanf(need,"%x",&hex);
               oct=hex;
-							//printf("%d\n",oct);
 							sprintf(need,"%d",oct);
-							//printf("%s\n",need);
 							strcpy(tokens[m].str,need);
 							break;
 					}
@@ -345,12 +340,12 @@ uint32_t expr(char *e, bool *success) {
     return 0;
   }
 	int p=0,q=m-1;
-	/*
-	for(int i=0;i<m-1;i++){
-					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='(')){
-									tokens[i].type==DEREF;	
-					}
-	}*/
+	
+  if(tokens[p].type=='*'&&check_parentheses(p+1,q)==0){
+			 int num=paddr_read(eval(p+1,q),4);
+       printf("result=%d",num);
+			 return 0;
+	}
 
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
