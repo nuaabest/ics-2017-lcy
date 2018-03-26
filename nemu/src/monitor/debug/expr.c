@@ -341,8 +341,7 @@ uint32_t expr(char *e, bool *success) {
   }
 	int p=0,q=m-1;
 	
-  if(tokens[p].type=='*'&&check_parentheses(p+1,q)==0){
-					printf("fsdf\n");
+  if(tokens[p].type=='*'&&check_parentheses(p+1,q)==1){
 			 int num=paddr_read(eval(p+1,q),4);
        printf("result=%d",num);
 			 return 0;
