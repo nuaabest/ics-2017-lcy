@@ -166,8 +166,7 @@ static bool make_token(char *e) {
 							unsigned int hex;
               int oct=0;
 						  tokens[m].type=HEX;
-							strncpy(need,substr_start,substr_len);
-              tokens[m].str[substr_len] = '\0';
+							strncpy(need,substr_start+3,substr_len);
 							printf("%s\n",need);
 							sscanf(need,"%x",&hex);
               oct=hex;
