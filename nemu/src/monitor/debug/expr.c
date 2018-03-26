@@ -164,7 +164,9 @@ static bool make_token(char *e) {
 					case HEX:{
 						  tokens[m].type=HEX;
 							strncpy(need,substr_start+2,substr_len-2);
-							printf("%s\n",need);
+							for(int i=0;i<10;i++){
+											printf("%c\n",need[i]);
+							}
 							break;
 					}
 					default : TODO();
