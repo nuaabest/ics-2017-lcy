@@ -225,7 +225,7 @@ int eval(int p,int q){
          printf("Bad expression!\n");
 				 assert(0);
 		}
-   else if(p==q){
+    else if(p==q){
 	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
 		       //  printf("%d\n",tokens[p].type);
 						 printf("Bad expression\n");
@@ -242,7 +242,7 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-				//	printf("sdgsd\n");
+				printf("sdgsd\n");
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
