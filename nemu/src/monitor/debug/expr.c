@@ -240,8 +240,9 @@ int eval(int p,int q){
 		 return eval(p+1,q-1);
 	 }//
 	 else{
-			//		printf("sdgsd\n");
+					printf("sdgsd\n");
         for(int count=p;count<=q;count++){
+								printf("%d ",num1[count]);
 							 if(tokens[count].type!=NUMBER){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
