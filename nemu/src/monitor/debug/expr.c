@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,TK_EQ,REG,NUMBER,HEX
+  TK_NOTYPE = 256,TK_EQ,REG,HEX,NUMBER
   /* TODO: Add more token types */
 
 };
@@ -33,7 +33,7 @@ static struct rule {
 //	{"!",  TK_NO},        //no
 	{"\\$e[a-dsi][xpi]",REG},  //register
 	{"0x[A-Fa-f0-9]+",HEX}, //hexadecimal number
-	 {"[0-9]{0,}",NUMBER},// numberx
+	{"[0-9]{0,}",NUMBER},// numberx
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
