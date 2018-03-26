@@ -290,7 +290,7 @@ int eval(int p,int q){
 																}	 
 														 }
 															
-														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER&&tokens[count-1].type!=REG){
+														 else if(tokens[count-1].type!=')'&&tokens[count-1].type!=NUMBER&&tokens[count-1].type!=REG&&tokens[count-1].type!=HEX){
 																				num1[count+1]=-num1[count+1];
 																				for(int i=count;i<q;i++){
 																								num1[i]=num1[i+1];
