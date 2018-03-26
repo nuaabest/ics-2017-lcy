@@ -169,6 +169,7 @@ static bool make_token(char *e) {
 							strncpy(need,substr_start,substr_len);
 							sscanf(need,"%x",&hex);
               oct=hex;
+							printf("%d\n",oct);
 							sprintf(need,"%d",oct);
 							printf("%s\n",need);
 							strcpy(tokens[m].str,need);
