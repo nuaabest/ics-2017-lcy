@@ -360,6 +360,7 @@ uint32_t expr(char *e, bool *success) {
 							tokens[i].type=DEFER;
 							printf("%111d  %d    %d\n",tokens[i].type,i,DEFER);
 				  }
+					printf("lll%d\n",tokens[i].type);
 	}
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
