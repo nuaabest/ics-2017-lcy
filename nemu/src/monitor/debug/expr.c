@@ -343,7 +343,7 @@ uint32_t expr(char *e, bool *success) {
 	
   if(tokens[p].type=='*'&&check_parentheses(p+1,q)==1){
 			 int num=paddr_read(eval(p+1,q),4);
-       printf("result=%d",num);
+       printf("result=0x%08x",num);
 			 return 0;
 	}
 	int lag=neg_num(p,q);
