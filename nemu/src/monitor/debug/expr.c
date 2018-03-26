@@ -154,7 +154,7 @@ static bool make_token(char *e) {
 							printf("%d\n",neednum);
 							strcpy(tokens[m].str,need);
 							printf("%s\n",tokens[m].str);
-						//	tokens[m].str[substr_len] = '\0';
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case NUMBER:{
