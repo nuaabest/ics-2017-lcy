@@ -153,7 +153,7 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
 							strcpy(tokens[m].str,need);
-							printf("%s\n",tokens[m].str);
+						//	printf("%s\n",tokens[m].str);
 							break;
 					}
           case NUMBER:{
@@ -170,7 +170,7 @@ static bool make_token(char *e) {
 							sscanf(need,"%x",&hex);
               oct=hex;
 							sprintf(need,"%d",oct);
-							//printf("%s\n",need);
+							printf("%s\n",need);
 							strcpy(tokens[m].str,need);
 							break;
 					}
