@@ -27,7 +27,7 @@ static struct rule {
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
 	{"[0-9]{0,}",NUMBER},// numberx
-  {"==", TK_EQ},      	// equal
+  {"=", TK_EQ},      	// equal
 	{"!=", TK_NQ},        //not equal
 	{"&&", TK_AND},       //and
   {"||", TK_OR},	      //or
@@ -79,7 +79,7 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-  //      Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
+      //  Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
     //        i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
 
@@ -87,8 +87,8 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-//				printf("fsd  %d   \n",i);
-		//		return 0;
+				printf("fsd  %d   \n",i);
+				return 0;
         switch (rules[i].token_type) {
 					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
