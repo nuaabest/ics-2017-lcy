@@ -358,7 +358,7 @@ uint32_t expr(char *e, bool *success) {
   for(int i=0;i<m;i++){
 					if(tokens[i].type=='*'&&(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
-							printf("%111d  %d\n",tokens[i].type,i);
+							printf("%111d  %d    %d\n",tokens[i].type,i,DEFER);
 				  }
 	}
 	int lag=neg_num(p,q);
