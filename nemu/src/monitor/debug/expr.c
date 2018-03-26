@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,NUMBER,TK_EQ,TK_NQ,TK_AND,TK_OR,TK_NO,REG
+  TK_NOTYPE = 256,TK_EQ,REG,NUMBER
   /* TODO: Add more token types */
 
 };
@@ -27,10 +27,10 @@ static struct rule {
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
   {"==", TK_EQ},      	// equal
-	{"!=", TK_NQ},        //not equal
-	{"&&", TK_AND},       //and
-  {"||", TK_OR},	      //or
-	{"!",  TK_NO},        //no
+//	{"!=", TK_NQ},        //not equal
+//	{"&&", TK_AND},       //and
+ // {"||", TK_OR},	      //or
+//	{"!",  TK_NO},        //no
 	{"\\$e[a-dsi][xpi]",REG},  //register
 	{"[0-9]{0,}",NUMBER},// numberx
 };
@@ -55,7 +55,7 @@ void init_regex() {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-		printf("%s    ",rules[i].regex);
+		//printf("%s    ",rules[i].regex);
   }
 }
 
@@ -133,26 +133,6 @@ static bool make_token(char *e) {
 					}
 					case TK_EQ:{
 							tokens[m].type=TK_EQ;//"=="
-							tokens[m].str[substr_len] = '\0';
-							break;
-					}
-					case TK_NQ:{
-							tokens[m].type=TK_NQ;
- 							tokens[m].str[substr_len] = '\0';
-							break;
-					}
-					case TK_AND:{
-							tokens[m].type=TK_AND;
-							tokens[m].str[substr_len] = '\0';
-							break;
-				  }
-					case TK_OR:{
-							tokens[m].type=TK_OR;
-							tokens[m].str[substr_len] = '\0';
-							break;
-				  }
-					case TK_NO:{
-							tokens[m].type=TK_NO;
 							tokens[m].str[substr_len] = '\0';
 							break;
 					}
