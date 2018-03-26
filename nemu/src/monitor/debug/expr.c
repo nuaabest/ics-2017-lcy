@@ -162,11 +162,14 @@ static bool make_token(char *e) {
 							break;
 					}
 					case HEX:{
+							unsigned int hex;
+              int oct=0;
 						  tokens[m].type=HEX;
-							strncpy(need,substr_start+2,substr_len-2);
-							for(int i=0;i<10;i++){
-											printf("%c\n",need[i]);
-							}
+							strncpy(need,substr_start,substr_len);
+							sscanf(need,"%x",&hex);
+              oct=hex;
+							sprintf(need,"%d",oct);
+							strcpy(tokens[m].str,need);
 							break;
 					}
 					default : TODO();
