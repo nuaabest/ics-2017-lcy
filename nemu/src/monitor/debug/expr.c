@@ -356,9 +356,10 @@ uint32_t expr(char *e, bool *success) {
 	int p=0,q=m-1;
 	
   for(int i=0;i<m;i++){
-					if(tokens[i].type=='*'&&(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')) 
+					if(tokens[i].type=='*'&&(i=0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
-					printf("sdfsd\n");
+							printf("%111d  %d\n",tokens[i].type,i);
+				  }
 	}
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
