@@ -27,7 +27,7 @@ static struct rule {
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
 	{"[0-9]{0,}",NUMBER},// numberx
-  {"=", TK_EQ},      	// equal
+  {"==", TK_EQ},      	// equal
 	{"!=", TK_NQ},        //not equal
 	{"&&", TK_AND},       //and
   {"||", TK_OR},	      //or
@@ -67,6 +67,7 @@ typedef struct token {
 Token tokens[32];
 int nr_token;
 int m=0;
+
 static bool make_token(char *e) {
   int position = 0;
   int i;
@@ -78,11 +79,9 @@ static bool make_token(char *e) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-
       //  Log("match rules[%d] = \"sdf  %s\" at position %d with len %d: %.*s",
     //        i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
-
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
