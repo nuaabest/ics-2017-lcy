@@ -219,7 +219,7 @@ int eval(int p,int q){
 				// printf("%d ",num1[count]);
 		}
 		//printf("\n");
-		//printf("%d  %d\n",p,q);
+		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
