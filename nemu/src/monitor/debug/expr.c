@@ -234,9 +234,7 @@ int eval(int p,int q){
 		   else{
 						printf("%d   ewr\n",num1[p]);
 							 return num1[p];
-						
 			}
-    
 	 }
    else if(check_parentheses(p,q)==true){
 		 return eval(p+1,q-1);
@@ -269,17 +267,17 @@ int eval(int p,int q){
 											 }
 											 else if(tokens[count].type==DEFER){
 															 count++;
-															 printf("%dasd\n",count);
 															 if(tokens[count].type=='('){
 																			 for(;count<=q;count++){
 																							 if(tokens[count].type=='(') abc++;
 																							 else if(tokens[count].type==')') abc--;
 																							 if(tokens[count].type==')'&&abc==0){
-																											 paddr_read(eval(count,count),4);
+																											 return paddr_read(eval(count,count),4);
+																											 break;
 																							 }
 																			 }
 															 }
-															 else eval(count,count);
+															 else return eval(count,count);
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
@@ -288,7 +286,6 @@ int eval(int p,int q){
 															 					num1[count+1]=-num1[count+1];
 																				for(int i=p;i<=q;i++){
 																								num1[i]=num1[i+1];
-																							//	itoa(num1[i],strl,10);
 																							  sprintf(str1,"%d",num1[i]);
 																								tokens[i].type=tokens[i+1].type;
 																								strcpy(tokens[i].str,str1);
@@ -298,7 +295,6 @@ int eval(int p,int q){
 																								tokens[ok].type=TK_NOTYPE;
 																								strcpy(tokens[ok].str,"\0");
 																				}
-																	//		printf("\n2352352\n");
 																			q--;
 																}	 
 														 }
@@ -358,6 +354,7 @@ uint32_t expr(char *e, bool *success) {
   for(int i=0;i<m;i++){
 					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
+							strcpy(tokens[i].str,"4");
 				  }
 	}
 	int lag=neg_num(p,q);
