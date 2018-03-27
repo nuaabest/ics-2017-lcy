@@ -216,9 +216,9 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				// printf("%d ",num1[count]);
+				 printf("%d ",num1[count]);
 		}
-		//printf("\n");
+		printf("\n");
 		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
