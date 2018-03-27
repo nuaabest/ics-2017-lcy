@@ -324,7 +324,7 @@ int eval(int p,int q){
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-					                 //	printf("m%d n %d\n",op,sta);
+					                 	printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
