@@ -142,7 +142,8 @@ static bool make_token(char *e) {
 							int neednum=0;
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
-							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
+							if(strcmp(need,"$eax")==0){ neednum=cpu.eax;
+							printf("%d   //\n",neednum);}
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
 							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
 							else if(strcmp(need,"$edx")==0) neednum=cpu.edx;
