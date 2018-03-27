@@ -81,8 +81,8 @@ static bool make_token(char *e) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-        Log("match rules[%d] = \"  %s\" at position %d with len %d: %.*s",
-            i, rules[i].regex, position, substr_len, substr_len, substr_start);
+        //Log("match rules[%d] = \"  %s\" at position %d with len %d: %.*s",
+          //  i, rules[i].regex, position, substr_len, substr_len, substr_start);
         position += substr_len;
         /* TODO: Now a new token is recognized with rules[i]. Add codes
          * to record the token in the array `tokens'. For certain types
@@ -142,8 +142,7 @@ static bool make_token(char *e) {
 							int neednum=0;
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
-							if(strcmp(need,"$eax")==0){ neednum=cpu.eax;
-							printf("%d   //\n",neednum);}
+							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
 							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
 							else if(strcmp(need,"$edx")==0) neednum=cpu.edx;
@@ -217,10 +216,10 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				 printf("%d ",num1[count]);
+				 //printf("%d ",num1[count]);
 		}
-		printf("\n");
-		printf("%d  %d\n",p,q);
+		//printf("\n");
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -325,7 +324,7 @@ int eval(int p,int q){
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-					                 	printf("m%d n %d\n",op,sta);
+					                 	//printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
