@@ -52,3 +52,7 @@ void free_wp(WP *wp){
 								wp->next=NULL;
 				}
 }
+
+//bool check_wp(){
+				
+//}
