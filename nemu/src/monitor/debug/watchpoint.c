@@ -68,8 +68,8 @@ int delete_wp(int n){
 				while(point!=NULL){
 								if(point->NO==n){
 												free_wp(point);
-												printf("delete watchpoint:NO    expr        value\n");
-												printf("                  %d     %6s %10d\n",point->NO,point->expression,point->value);
+												printf("delete watchpoint:NO     expr        value\n");
+												printf("                  %d     %s          %10d\n",point->NO,point->expression,point->value);
 												break;
 								}
 								point=point->next;
