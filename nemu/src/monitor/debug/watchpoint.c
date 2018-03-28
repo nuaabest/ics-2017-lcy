@@ -96,9 +96,9 @@ int show_wp(){
 							 	printf("no watchpoint!\n");
 								return 0;
 				}
-				printf("Num          Value       What\n");
+				printf("Num      Value       What\n");
 				while(point!=NULL){
-								printf("%d        %d            %s\n",point->NO,point->value,point->expression);
+								printf("%d        %d        %s\n",point->NO,point->value,point->expression);
 								point=point->next;
 				}
 				return 0;
