@@ -320,6 +320,7 @@ int eval(int p,int q){
 											 }
 							 }
 				}
+				printf("%d\n",op);
         int val1=eval(p,op-1);
 			  int val2=eval(op+1,q);
 			  switch(tokens[op].type){
@@ -348,15 +349,13 @@ uint32_t expr(char *e, bool *success) {
 	}
 	int lag=neg_num(p,q);
   /* TODO: Insert codes to evaluate the expression. */
-  int result;//t=eval(p,q);
+  int result;
 	if(lag==1){ 
 					result=eval(p+1,q);
 					result=-result;
-				//	printf("result=%d\n",result);
 	}
 	else{
 					result=eval(p,q);
-				//	printf("result=%d\n",result);
 	}
   return result;
 }
