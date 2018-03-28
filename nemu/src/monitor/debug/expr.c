@@ -27,10 +27,10 @@ static struct rule {
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
   {"==", TK_EQ},      	// equal
-	{"!=", TK_NQ},        //not equal
-	{"&&", TK_AND},       //and
-  {"||", TK_OR},	      //or
-	{"!",  TK_NO},        //no
+//	{"!=", TK_NQ},        //not equal
+//	{"&&", TK_AND},       //and
+ // {"||", TK_OR},	      //or
+//	{"!",  TK_NO},        //no
 	{"\\$e[a-dsi][xpi]",REG},  //register
 	{"0x[A-Fa-f0-9]+",HEX}, //hexadecimal number
 	{"[0-9]{0,}",NUMBER},// numberx
@@ -165,7 +165,7 @@ static bool make_token(char *e) {
 							sprintf(need,"%d",oct);
 							strcpy(tokens[m].str,need);m++;
 							break;
-					}
+					}/*
 					case TK_NQ:{
 							tokens[m].type=TK_NQ;
 							tokens[m].str[substr_len] = '\0';m++;
@@ -185,7 +185,7 @@ static bool make_token(char *e) {
 							tokens[m].type=TK_NO;
 							tokens[m].str[substr_len] = '\0';m++;
 							break;
-					}
+					}*/
 					default : TODO();
         }
 				break;
