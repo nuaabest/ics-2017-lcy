@@ -7,7 +7,8 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,TK_EQ,TK_NQ,TK_AND,TK_OR,TK_NO,REG,HEX,NUMBER,DEFER
+  TK_NOTYPE = 256,TK_EQ,REG,HEX,NUMBER,DEFER
+
   /* TODO: Add more token types */
 
 };
@@ -88,6 +89,7 @@ static bool make_token(char *e) {
          */
         switch (rules[i].token_type) {
 					case TK_NOTYPE:{
+							m++;
 							break;
 					}	
           case '+':{
