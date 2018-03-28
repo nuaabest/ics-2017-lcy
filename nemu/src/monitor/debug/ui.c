@@ -153,11 +153,9 @@ static int cmd_w(char *args){
     if(arg==NULL) assert(0);
 		bool succ;
 		uint32_t value=expr(arg,&succ);
-		printf("-%d %s-\n",value,arg);
     WP *point=NULL;
 		point=new_wp();
 		strcpy(point->expression,arg);
-		printf("%d\n",value);
     point->value=value;
 	  printf("Watchpoint : %d  %s\n",point->NO,point->expression);
 		return 0;
