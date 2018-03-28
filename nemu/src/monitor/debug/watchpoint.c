@@ -40,7 +40,7 @@ void free_wp(WP *wp){
 				if(point_1==wp) head=wp->next;
 				else{
 								while(point_1->next!=wp) point_1=point_1->next;
-								point_1->next=NULL;
+								point_1->next=wp->next;
 				}
 				if(point_2==NULL){
 								free_=wp;
