@@ -149,18 +149,12 @@ static int cmd_p(char *args){
 		return 0;
 }
 
-WP *new_wp();
+void set_wp(char *args);
 int delete_wp(int n);
 static int cmd_w(char *args){
 		char *arg=strtok(NULL," ");
     if(arg==NULL) assert(0);
-		bool succ;
-		uint32_t value=expr(arg,&succ);
-    WP *point=NULL;
-		point=new_wp();
-		strcpy(point->expression,arg);
-    point->value=value;
-	  printf("Watchpoint : %d  %s\n",point->NO,point->expression);
+		set_wp(arg);
 		return 0;
 }
 

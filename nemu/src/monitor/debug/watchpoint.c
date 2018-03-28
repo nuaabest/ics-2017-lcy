@@ -53,13 +53,22 @@ void free_wp(WP *wp){
 				}
 }
 
+void set_wp(char *args){
+				WP *point=new_wp();
+				bool succ;
+				int value=expr(args,&succ);
+				strcpy(point->expression,args);
+				point->value=value;
+				printf("Watchpoint : %d  %s\n",point->NO,point->expression);
+}
+
 int delete_wp(int n){
         WP *point=head;
 				if(head==NULL) printf("No watchpoint!\n");
 				while(point!=NULL){
 								if(point->NO==n){
 												free_wp(point);
-												printf("delete watchpoint:NO    expr    value\n");
+												printf("delete watchpoint:NO    expr        value\n");
 												printf("                  %d    %s      %d\n",point->NO,point->expression,point->value);
 												break;
 								}
