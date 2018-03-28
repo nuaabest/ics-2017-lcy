@@ -152,7 +152,7 @@ static int cmd_w(char *args){
 		char *arg=strtok(NULL," ");
     if(arg==NULL) assert(0);
 		bool succ;
-		int value=expr(arg,&succ);
+		uint32_t value=expr(arg,&succ);
 		printf("-%d-\n",value);
     WP *point=NULL;
 		point=new_wp();
