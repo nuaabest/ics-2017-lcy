@@ -114,8 +114,8 @@ static int cmd_info(char *args){
 }
 
 static int cmd_x(char *args){
-//	char *arg=strtok(NULL," ");
-	int i=atoi(args);
+	char *arg=strtok(NULL," ");
+	int i=atoi(arg);
 	unsigned int j=0,m;
 	unsigned int p;
 	char *temp = strtok(NULL," ");
