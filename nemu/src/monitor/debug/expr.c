@@ -367,5 +367,5 @@ uint32_t expr(char *e, bool *success) {
 					result=eval(p,q);
 					printf("result=%d\n",result);
 	}
-  return 0;
+  return result;
 }
