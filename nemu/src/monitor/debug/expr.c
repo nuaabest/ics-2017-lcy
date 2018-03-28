@@ -7,7 +7,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256,TK_EQ,REG,HEX,NUMBER,DEFER
+  TK_NOTYPE = 256,TK_EQ,TK_NQ,TK_AND,TK_OR,TK_NO,REG,HEX,NUMBER,DEFER
   /* TODO: Add more token types */
 
 };
@@ -27,10 +27,10 @@ static struct rule {
 	{"\\(", '('},         // left
 	{"\\)", ')'},       	// right
   {"==", TK_EQ},      	// equal
-//	{"!=", TK_NQ},        //not equal
-//	{"&&", TK_AND},       //and
- // {"||", TK_OR},	      //or
-//	{"!",  TK_NO},        //no
+	{"!=", TK_NQ},        //not equal
+	{"&&", TK_AND},       //and
+  {"||", TK_OR},	      //or
+	{"!",  TK_NO},        //no
 	{"\\$e[a-dsi][xpi]",REG},  //register
 	{"0x[A-Fa-f0-9]+",HEX}, //hexadecimal number
 	{"[0-9]{0,}",NUMBER},// numberx
@@ -169,6 +169,26 @@ static bool make_token(char *e) {
 							strcpy(tokens[m].str,need);m++;
 							break;
 					}
+					case TK_NQ:{
+							tokens[m].type=TK_NQ;
+							tokens[m].str[substr_len] = '\0';m++;
+							break;
+					}
+					case TK_AND:{
+							tokens[m].type=TK_AND;
+							tokens[m].str[substr_len] = '\0';m++;
+							break;
+					}
+					case TK_OR:{
+						  tokens[m].type=TK_OR;
+							tokens[m].str[substr_len] = '\0';m++;
+							break;
+					}
+					case TK_NO:{
+							tokens[m].type=TK_NO;
+							tokens[m].str[substr_len] = '\0';m++;
+							break;
+					}
 					default : TODO();
         }
 				break;
@@ -211,9 +231,7 @@ int eval(int p,int q){
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
-				// printf("%d ",num1[count]);
 		}
-		//printf("\n");
 		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
@@ -222,7 +240,6 @@ int eval(int p,int q){
 		}
     else if(p==q){
 	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
-		       //  printf("%d\n",tokens[p].type);
 						 printf("Bad expression\n");
 				     assert(0);
        }
@@ -282,7 +299,6 @@ int eval(int p,int q){
 																				num1[count+1]=-num1[count+1];
 																				for(int i=count;i<q;i++){
 																								num1[i]=num1[i+1];
-																							//	itoa(num1[i],str1,10);
 																							  sprintf(str1,"%d",num1[i]);
 																								tokens[i].type=tokens[i+1].type;
 																								strcpy(tokens[i].str,str1);
@@ -297,18 +313,15 @@ int eval(int p,int q){
 														else if(num1[count]<=sta&&num1[count]!=3){
 																	 sta=num1[count];
 																 op=count;
-				                    //	printf("%d     %dgsdg\n",op,sta);
 														}		
 														
 											 }
 											 else if(num1[count]<=sta&&num1[count]!=3){						 
 															 sta=num1[count];
                                op=count;
-					                 	//printf("m%d n %d\n",op,sta);
 											 }
 							 }
 				}
-       // printf("mm%d             %dnn        %d\n",p,op,q);	
         int val1=eval(p,op-1);
 			  int val2=eval(op+1,q);
 			  switch(tokens[op].type){
