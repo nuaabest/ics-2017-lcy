@@ -178,6 +178,7 @@ static bool make_token(char *e) {
       return false;
     }
 	}
+	printf("%d\n",m);
   return true;
 }
 
@@ -319,8 +320,6 @@ int eval(int p,int q){
 				}	
 
 	 }
-	 free(num1);
-
 }
 
 uint32_t expr(char *e, bool *success) {
