@@ -206,7 +206,7 @@ int neg_num(int p,int q){
 int eval(int p,int q){
 		//deal with '-'
 		int abc=0;
-		int num1[p-q+1],op=0;
+		int num1[m],op=0;
 		char str1[32];
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
@@ -319,6 +319,7 @@ int eval(int p,int q){
 				}	
 
 	 }
+	 free(num1);
 
 }
 
