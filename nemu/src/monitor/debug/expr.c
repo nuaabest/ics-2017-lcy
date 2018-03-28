@@ -72,6 +72,7 @@ int m=0;
 static bool make_token(char *e) {
   int position = 0;
   int i;
+	m=0;
 	char need[32];
   regmatch_t pmatch;  
   nr_token = 0;
@@ -178,7 +179,6 @@ static bool make_token(char *e) {
       return false;
     }
 	}
-	printf("%d\n",m);
   return true;
 }
 
