@@ -48,15 +48,12 @@ void init_regex() {
   char error_msg[128];
   int ret;
 
- // printf("sdfsd");
-
   for (i = 0; i < NR_REGEX; i ++) {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
     if (ret != 0) {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
     }
-   // printf("%s    ",rules[i].regex);
   }
 }
 
@@ -232,7 +229,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		//printf("%d  %d\n",p,q);
+		printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
