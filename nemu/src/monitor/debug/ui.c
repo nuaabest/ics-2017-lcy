@@ -41,6 +41,7 @@ static int cmd_si(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
 static int cmd_p(char *args);
+static int cmd_w(char *args);
 
 static struct {
   char *name;
@@ -54,6 +55,7 @@ static struct {
   { "info","Print register state",cmd_info},
   { "x","Scanning memory",cmd_x},
 	{ "p","expression evaluation",cmd_p},
+	{ "w","set watchpoint",cmd_w},
   /* TODO: Add more commands */
 };
 
@@ -141,7 +143,7 @@ static int cmd_p(char *args){
 		expr(arg,&succ);
 		return 0;
 }
-/*
+
 WP *new_wp();
 void free_wp(WP *wp);
 static int cmd_w(char *args){
@@ -149,13 +151,14 @@ static int cmd_w(char *args){
     if(arg==NULL) assert(0);
 		bool succ=true;
 		int value=expr(arg,&succ);
-    WP *point;
+    WP *point=NULL;
 		point=new_wp();
 		strcpy(point->expression,arg);
     point->value=value;
-	//	printf
+	  printf("Watchpoint : %d  %s",point->NO,point->expression);
+		return 0;
 }
-*/
+
 void ui_mainloop(int is_batch_mode) {
   if (is_batch_mode) {
     cmd_c(NULL);

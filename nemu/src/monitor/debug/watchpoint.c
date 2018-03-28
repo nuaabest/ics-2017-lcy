@@ -57,7 +57,7 @@ uint32_t expr(char *e,bool *success);
 
 bool check_wp(){
 				WP *point=head;
-				bool succ=true;
+				bool succ;
 				if(point==NULL) return false;
 				while(point!=NULL){
 							 uint32_t new_value=expr(point->expression,&succ);
