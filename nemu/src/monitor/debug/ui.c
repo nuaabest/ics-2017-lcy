@@ -151,8 +151,9 @@ int delete_wp(int n);
 static int cmd_w(char *args){
 		char *arg=strtok(NULL," ");
     if(arg==NULL) assert(0);
-		bool succ=true;
+		bool succ;
 		int value=expr(arg,&succ);
+		printf("-%d-\n",value);
     WP *point=NULL;
 		point=new_wp();
 		strcpy(point->expression,arg);
