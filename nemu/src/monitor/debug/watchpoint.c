@@ -64,7 +64,7 @@ int delete_wp(int n){
 								point=point->next;
 				}
         if(point==NULL) return 0;
-				return 0;
+				return 1;
 }
 
 uint32_t expr(char *e,bool *success);
