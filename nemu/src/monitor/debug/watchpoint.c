@@ -88,3 +88,14 @@ bool check_wp(){
 				}
 				return false;
 }
+
+void show_wp(){
+				WP *point=NULL;
+        point=head;
+				if(head==NULL) printf("no watchpoint!\n");
+				printf("Num   Value   What\n");
+				while(point!=NULL){
+								printf("%d   %d   %s\n",point->NO,point->value,point->expression);
+								point=point->next;
+				}
+}

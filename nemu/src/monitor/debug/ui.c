@@ -106,6 +106,7 @@ static int cmd_si(char *args){
 	return 0;
 }
 
+void show_wp();
 static int cmd_info(char *args){
 	char *arg=strtok(NULL," ");
 	if(strcmp(arg,"r")==0){
@@ -114,6 +115,7 @@ static int cmd_info(char *args){
 		}
 		printf("eip         0x%08x           %d\n",cpu.eip,cpu.eip);
 	}
+	else if(strcmp(arg,"r")==0) show_wp();
 	return 0;
 }
 
