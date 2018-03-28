@@ -143,8 +143,8 @@ static int cmd_x(char *args){
 uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
 		bool succ;
-	//	char *arg=strtok(NULL," ");
-		expr(args,&succ);
+   	char *arg=strtok(NULL," ");
+		expr(arg,&succ);
 		return 0;
 }
 
