@@ -232,7 +232,7 @@ int eval(int p,int q){
 		for(int count=p;count<=q;count++){
 				 num1[count]=atoi(tokens[count].str);
 		}
-		printf("%d  %d\n",p,q);
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -343,7 +343,6 @@ uint32_t expr(char *e, bool *success) {
     return 0;
   }
 	int p=0,q=m-1;
-printf("%d %d\n",p,q);	
   for(int i=0;i<m;i++){
 					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
