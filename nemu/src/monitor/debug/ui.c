@@ -115,7 +115,7 @@ static int cmd_info(char *args){
 		}
 		printf("eip         0x%08x           %d\n",cpu.eip,cpu.eip);
 	}
-	else if(strcmp(arg,"r")==0) show_wp();
+	else if(strcmp(arg,"w")==0) show_wp();
 	return 0;
 }
 
