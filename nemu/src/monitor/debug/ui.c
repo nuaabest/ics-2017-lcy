@@ -136,16 +136,26 @@ static int cmd_x(char *args){
 
 uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
-		bool succ=true;
+		bool succ;
 		char *arg=strtok(NULL," ");
 		expr(arg,&succ);
 		return 0;
 }
-
-//static int cmd_w(char *args){
-		
-//}
-
+/*
+WP *new_wp();
+void free_wp(WP *wp);
+static int cmd_w(char *args){
+		char *arg=strtok(NULL," ");
+    if(arg==NULL) assert(0);
+		bool succ=true;
+		int value=expr(arg,&succ);
+    WP *point;
+		point=new_wp();
+		strcpy(point->expression,arg);
+    point->value=value;
+	//	printf
+}
+*/
 void ui_mainloop(int is_batch_mode) {
   if (is_batch_mode) {
     cmd_c(NULL);
