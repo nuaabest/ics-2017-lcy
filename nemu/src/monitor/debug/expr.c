@@ -340,7 +340,7 @@ uint32_t expr(char *e, bool *success) {
     return 0;
   }
 	int p=0,q=m-1;
-	
+printf("%d %d\n",p,q);	
   for(int i=0;i<m;i++){
 					if(tokens[i].type=='*'&&(i==0||tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')){
 							tokens[i].type=DEFER;
