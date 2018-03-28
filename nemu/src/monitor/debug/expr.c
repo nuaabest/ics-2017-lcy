@@ -260,12 +260,13 @@ int eval(int p,int q){
 											 }
 											 else if(tokens[count].type==DEFER){
 															 count++;
+															 int flag=count;
 															 if(tokens[count].type=='('){
 																			 for(;count<=q;count++){
 																							 if(tokens[count].type=='(') abc++;
 																							 else if(tokens[count].type==')') abc--;
 																							 if(tokens[count].type==')'&&abc==0){
-																											 return paddr_read(eval(count,count),4);
+																											 return paddr_read(eval(flag,count),4);
 																											 break;
 																							 }
 																			 }
