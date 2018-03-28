@@ -138,7 +138,6 @@ static bool make_token(char *e) {
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
               need[4]='\0';
-							printf("%s\n",need);
 							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
 							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
@@ -342,11 +341,11 @@ uint32_t expr(char *e, bool *success) {
 	if(lag==1){ 
 					result=eval(p+1,q);
 					result=-result;
-					printf("result=%d\n",result);
+				//	printf("result=%d\n",result);
 	}
 	else{
 					result=eval(p,q);
-					printf("result=%d\n",result);
+				//	printf("result=%d\n",result);
 	}
   return result;
 }

@@ -144,7 +144,8 @@ uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
 		bool succ;
    	char *arg=strtok(NULL," ");
-		expr(arg,&succ);
+		int result=expr(arg,&succ);
+		printf("result=%d\n",result);
 		return 0;
 }
 
