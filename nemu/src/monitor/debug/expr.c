@@ -255,7 +255,7 @@ int eval(int p,int q){
 																							 }
 																			 }
 															 }
-															 else return eval(count,count);
+															 else return paddr_read(eval(count,count),4);
 											 }
 											 else  if(tokens[count].type=='-'){
 															if(count==p){
