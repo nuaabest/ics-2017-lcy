@@ -42,6 +42,7 @@ static int cmd_info(char *args);
 static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_w(char *args);
+static int cmd_d(char *args);
 
 static struct {
   char *name;
@@ -56,6 +57,7 @@ static struct {
   { "x","Scanning memory",cmd_x},
 	{ "p","expression evaluation",cmd_p},
 	{ "w","set watchpoint",cmd_w},
+	{ "d","delete watchpoint",cmd_d},
   /* TODO: Add more commands */
 };
 
@@ -145,7 +147,7 @@ static int cmd_p(char *args){
 }
 
 WP *new_wp();
-void free_wp(WP *wp);
+int delete_wp(int n);
 static int cmd_w(char *args){
 		char *arg=strtok(NULL," ");
     if(arg==NULL) assert(0);
@@ -156,6 +158,14 @@ static int cmd_w(char *args){
 		strcpy(point->expression,arg);
     point->value=value;
 	  printf("Watchpoint : %d  %s",point->NO,point->expression);
+		return 0;
+}
+
+static int cmd_d(char *args){
+    char *arg=strtok(NULL," ");
+		int n=atoi(arg);
+		int lag=delete_wp(n);
+		if(lag==0) printf("no this point\n");
 		return 0;
 }
 

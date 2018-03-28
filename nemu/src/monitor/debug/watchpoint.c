@@ -53,8 +53,21 @@ void free_wp(WP *wp){
 				}
 }
 
-uint32_t expr(char *e,bool *success);
+int delete_wp(int n){
+        WP *point=head;
+				if(head==NULL) printf("No watchpoint!\n");
+				while(point!=NULL){
+								if(point->NO==n){
+												free_wp(point);
+												break;
+								}
+								point=point->next;
+				}
+        if(point==NULL) return 0;
+				return 0;
+}
 
+uint32_t expr(char *e,bool *success);
 bool check_wp(){
 				WP *point=head;
 				bool succ;
@@ -65,8 +78,8 @@ bool check_wp(){
 											 point=point->next;
 							 }
 							 else {
-											 printf("NUM    OLD VALUE     NEWVALUE     WHAT\n");
-											 printf("%d     0x%x          0x%x         %s\n",point->NO,point->value,new_value,point->expression);
+											// printf("NUM    OLD VALUE     NEWVALUE     WHAT\n");
+											 //printf("%d     0x%x          0x%x         %s\n",point->NO,point->value,new_value,point->expression);
 											 point->value=new_value;
 											 return true;
 							 }
