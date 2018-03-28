@@ -136,10 +136,10 @@ static bool make_token(char *e) {
 							break;
 					}
 					case REG:{
-							printf("1234\n");
 							int neednum=0;
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
+							printf("%s\n",need);
 							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
 							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
