@@ -156,6 +156,7 @@ static int cmd_w(char *args){
     WP *point=NULL;
 		point=new_wp();
 		strcpy(point->expression,arg);
+		printf("%d\n",value);
     point->value=value;
 	  printf("Watchpoint : %d  %s\n",point->NO,point->expression);
 		return 0;
