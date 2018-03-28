@@ -91,10 +91,7 @@ static bool make_token(char *e) {
 			//	printf("fsd  %d   \n",i);
 			//	return 0;
         switch (rules[i].token_type) {
-					case TK_NOTYPE:{/*
-							tokens[m].type=TK_NOTYPE;
-							strcpy(tokens[m].str,"9");
-							tokens[m].str[substr_len] = '\0';*/
+					case TK_NOTYPE:{
 							break;
 					}	
           case '+':{
@@ -217,7 +214,7 @@ int eval(int p,int q){
 				 //printf("%d ",num1[count]);
 		}
 		//printf("\n");
-		printf("%d  %d\n",p,q);
+		//printf("%d  %d\n",p,q);
 		int sta=10;
 		if(p>q){
          printf("Bad expression!\n");
@@ -246,22 +243,7 @@ int eval(int p,int q){
 																			 else if(tokens[count].type==')') abc--;
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
-											 }/*
-											 else if(tokens[count].type==TK_NOTYPE){
-															 for(int i=count;i<=q;i++){
-																			 num1[i]=num1[i+1];
-																			 sprintf(str1,"%d",num1[i]);
-																			 tokens[i].type=tokens[i+1].type;
-																			 strcpy(tokens[i].str,str1);
-															 }
-															 for(int i=q;i<=q;i++){
-															 		num1[i]='\0';
-															 		tokens[i].type=TK_NOTYPE;
-															 		strcpy(tokens[i].str,"\0");
-															 }
-															 count--;
-															 q--;
-											 }*/
+											 }
 											 else if(tokens[count].type==DEFER){
 															 count++;
 															 if(tokens[count].type=='('){
