@@ -86,6 +86,7 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
+				printf("%d ",m);
         switch (rules[i].token_type) {
 					case TK_NOTYPE:{
 							break;
@@ -146,12 +147,14 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$esi")==0) neednum=cpu.esi;
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
-							strcpy(tokens[m].str,need);m++;
+							strcpy(tokens[m].str,need);
+							m++;
 							break;
 					}
           case NUMBER:{
 							tokens[m].type=NUMBER;
-							strncpy(tokens[m].str,substr_start,substr_len);m++;
+							strncpy(tokens[m].str,substr_start,substr_len);
+							m++;
 							break;
 					}
 					case HEX:{
@@ -163,7 +166,8 @@ static bool make_token(char *e) {
 							sscanf(need,"%x",&hex);
               oct=hex;
 							sprintf(need,"%d",oct);
-							strcpy(tokens[m].str,need);m++;
+							strcpy(tokens[m].str,need);
+							m++;
 							break;
 					}/*
 					case TK_NQ:{
@@ -188,7 +192,6 @@ static bool make_token(char *e) {
 					}*/
 					default : TODO();
         }
-				m++;
 				break;
       }
     }
