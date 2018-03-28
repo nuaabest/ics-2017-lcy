@@ -339,7 +339,7 @@ int eval(int p,int q){
 				}	
 
 	 }
-   return 0;
+
 }
 
 uint32_t expr(char *e, bool *success) {
