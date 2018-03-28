@@ -1,4 +1,4 @@
-#include "monitor/monitor.h"
+#include"monitor/monitor.h"
 #include "monitor/expr.h"
 #include "monitor/watchpoint.h"
 #include "nemu.h"
@@ -114,8 +114,8 @@ static int cmd_info(char *args){
 }
 
 static int cmd_x(char *args){
-	char *arg=strtok(NULL," ");
-	int i=atoi(arg);
+//	char *arg=strtok(NULL," ");
+	int i=atoi(args);
 	unsigned int j=0,m;
 	unsigned int p;
 	char *temp = strtok(NULL," ");
@@ -137,10 +137,15 @@ static int cmd_x(char *args){
 uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
 		bool succ=true;
-	//	printf("%s\n",args);
+	//	if(strcmp(args,NULL)==0) succ=false;
+	//	if(succ==false) printf("Wrong!!\n");
 		expr(args,&succ);
 		return 0;
 }
+
+//static int cmd_w(char *args){
+		
+//}
 
 void ui_mainloop(int is_batch_mode) {
   if (is_batch_mode) {

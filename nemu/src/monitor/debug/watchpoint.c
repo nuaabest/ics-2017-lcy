@@ -53,6 +53,24 @@ void free_wp(WP *wp){
 				}
 }
 
-//bool check_wp(){
-				
-//}
+uint32_t expr(char *e,bool *success);
+
+bool check_wp(){
+				WP *point=head;
+				bool succ=true;
+				if(point==NULL) return false;
+				while(point!=NULL){
+							 uint32_t new_value=expr(point->expression,&succ);
+						   if(point->value==new_value){
+											 point=point->next;
+							 }
+							 else {
+											 printf("NUM    OLD VALUE     NEWVALUE     WHAT\n");
+											 printf("%d     0x%x          0x%x         %s\n",point->NO,point->value,new_value,point->expression);
+											 point->value=new_value;
+											 return true;
+							 }
+							 point=point->next;
+				}
+				return false;
+}
