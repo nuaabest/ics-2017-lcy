@@ -91,51 +91,51 @@ static bool make_token(char *e) {
 			//	printf("fsd  %d   \n",i);
 			//	return 0;
         switch (rules[i].token_type) {
-					case TK_NOTYPE:{/*
+					case TK_NOTYPE:{
 							tokens[m].type=TK_NOTYPE;
 							strcpy(tokens[m].str,"9");
-							tokens[m].str[substr_len] = '\0';*/
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}	
           case '+':{
 							tokens[m].type='+';
 							strcpy(tokens[m].str,"1");
-						  tokens[m].str[substr_len] = '\0';	m++;
+						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
 					case '-':{
 							tokens[m].type='-';
 							strcpy(tokens[m].str,"1"); 
-							tokens[m].str[substr_len] = '\0';m++;
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '*':{
 							tokens[m].type='*';
 							strcpy(tokens[m].str,"2");	
-							tokens[m].str[substr_len] = '\0';m++;
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case '/':{
 							tokens[m].type='/';
 							strcpy(tokens[m].str,"2");
-						  tokens[m].str[substr_len] = '\0';	m++;
+						  tokens[m].str[substr_len] = '\0';	
 							break;
 					}
           case '(':{
 							tokens[m].type='(';
 							strcpy(tokens[m].str,"3");	
-							tokens[m].str[substr_len] = '\0';m++;
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
           case ')':{
 							tokens[m].type=')';
 							strcpy(tokens[m].str,"3");	
-							tokens[m].str[substr_len] = '\0';m++;
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case TK_EQ:{
 							tokens[m].type=TK_EQ;//"=="
-							tokens[m].str[substr_len] = '\0';m++;
+							tokens[m].str[substr_len] = '\0';
 							break;
 					}
 					case REG:{
@@ -152,12 +152,12 @@ static bool make_token(char *e) {
 							else if(strcmp(need,"$esi")==0) neednum=cpu.esi;
 							else if(strcmp(need,"$edi")==0) neednum=cpu.edi;
 							sprintf(need,"%d",neednum);
-							strcpy(tokens[m].str,need);m++;
+							strcpy(tokens[m].str,need);
 							break;
 					}
           case NUMBER:{
 							tokens[m].type=NUMBER;
-							strncpy(tokens[m].str,substr_start,substr_len);m++;
+							strncpy(tokens[m].str,substr_start,substr_len);
 							break;
 					}
 					case HEX:{
@@ -169,11 +169,12 @@ static bool make_token(char *e) {
 							sscanf(need,"%x",&hex);
               oct=hex;
 							sprintf(need,"%d",oct);
-							strcpy(tokens[m].str,need);m++;
+							strcpy(tokens[m].str,need);
 							break;
 					}
 					default : TODO();
         }
+				m++;
 				break;
       }
     }
@@ -246,7 +247,7 @@ int eval(int p,int q){
 																			 else if(tokens[count].type==')') abc--;
 																			 if(tokens[count].type==')'&&abc==0) break;
 															 }
-											 }/*
+											 }
 											 else if(tokens[count].type==TK_NOTYPE){
 															 for(int i=count;i<=q;i++){
 																			 num1[i]=num1[i+1];
@@ -261,7 +262,7 @@ int eval(int p,int q){
 															 }
 															 count--;
 															 q--;
-											 }*/
+											 }
 											 else if(tokens[count].type==DEFER){
 															 count++;
 															 if(tokens[count].type=='('){
