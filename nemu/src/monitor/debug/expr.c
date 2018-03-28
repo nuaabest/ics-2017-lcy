@@ -136,6 +136,7 @@ static bool make_token(char *e) {
 							break;
 					}
 					case REG:{
+							printf("1234\n");
 							int neednum=0;
 							tokens[m].type=REG;
               strncpy(need,substr_start,substr_len);
