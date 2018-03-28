@@ -137,9 +137,8 @@ static int cmd_x(char *args){
 uint32_t expr(char *e,bool *success);
 static int cmd_p(char *args){
 		bool succ=true;
-	//	if(strcmp(args,NULL)==0) succ=false;
-	//	if(succ==false) printf("Wrong!!\n");
-		expr(args,&succ);
+		char *arg=strtok(NULL," ");
+		expr(arg,&succ);
 		return 0;
 }
 
