@@ -64,7 +64,7 @@ typedef struct token {
 
 Token tokens[32];
 int nr_token;
-int m=0;
+int m;
 
 static bool make_token(char *e) {
   int position = 0;
@@ -148,7 +148,6 @@ static bool make_token(char *e) {
 							sprintf(need,"%d",neednum);
 							strcpy(tokens[m].str,need);
 							m++;
-							printf("%d\n",m);
 							break;
 					}
           case NUMBER:{
