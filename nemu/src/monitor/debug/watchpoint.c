@@ -89,8 +89,6 @@ bool check_wp(){
 											 point=point->next;
 							 }
 							 else {
-											// printf("NUM    OLD VALUE     NEWVALUE     WHAT\n");
-											 //printf("%d     0x%x          0x%x         %s\n",point->NO,point->value,new_value,point->expression);
 											 point->value=new_value;
 											 return true;
 							 }
@@ -108,7 +106,7 @@ int show_wp(){
 				}
 				printf("Num      Value       What\n");
 				while(point!=NULL){
-								printf("%d        %d        %s\n",point->NO,point->value,point->expression);
+								printf("%d        %15d        %s\n",point->NO,point->value,point->expression);
 								point=point->next;
 				}
 				return 0;
