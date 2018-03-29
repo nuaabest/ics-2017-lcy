@@ -152,9 +152,9 @@ static int cmd_p(char *args){
 void set_wp(char *args);
 int delete_wp(int n);
 static int cmd_w(char *args){
-		char *arg=strtok(NULL," ");
-    if(arg==NULL) assert(0);
-		set_wp(arg);
+	//	char *arg=strtok(NULL," ");
+    if(args==NULL) assert(0);
+		set_wp(args);
 		return 0;
 }
 
