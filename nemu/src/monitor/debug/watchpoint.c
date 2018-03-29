@@ -106,7 +106,7 @@ int show_wp(){
 				}
 				printf("Num      Value       What\n");
 				while(point!=NULL){
-								printf("%d        %15d        %s\n",point->NO,point->value,point->expression);
+								printf("%d        %-15d        %s\n",point->NO,point->value,point->expression);
 								point=point->next;
 				}
 				return 0;
