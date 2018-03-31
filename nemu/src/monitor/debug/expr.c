@@ -321,6 +321,7 @@ int eval(int p,int q){
 															 sta=num1[count];
                                op=count;
 											 }
+											 printf("%d\n",op);
 							 }
 				}
         int val1=eval(p,op-1);
