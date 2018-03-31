@@ -138,7 +138,7 @@ static bool make_token(char *e) {
               need[4]='\0';
 							if(strcmp(need,"$eax")==0) neednum=cpu.eax;
 							else if(strcmp(need,"$ecx")==0) neednum=cpu.ecx;
-							else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
+							//else if(strcmp(need,"$eip")==0) neednum=cpu.eip;
 							else if(strcmp(need,"$edx")==0) neednum=cpu.edx;
 						  else if(strcmp(need,"$ebx")==0) neednum=cpu.ebx;
 						  else if(strcmp(need,"$esp")==0) neednum=cpu.esp;
