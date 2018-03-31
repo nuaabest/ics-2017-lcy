@@ -253,7 +253,7 @@ int eval(int p,int q){
 	 }
 	 else{
         for(int count=p;count<=q;count++){
-							 if(tokens[count].type!=NUMBER){
+							 if(tokens[count].type!=NUMBER&&tokens[count].type!=HEX){
 											 if(tokens[count].type=='('){
 															 for(;count<=q;count++){
 																			 if(tokens[count].type=='(') abc++;
