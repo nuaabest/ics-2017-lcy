@@ -239,7 +239,7 @@ int eval(int p,int q){
 				 assert(0);
 		}
     else if(p==q){
-	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'){
+	     if(tokens[p].type=='+'||tokens[p].type=='-'||tokens[p].type=='*'||tokens[p].type=='/'||tokens[p].type=='('||tokens[p].type==')'){
 						 printf("Bad expression\n");
 				     assert(0);
        }
@@ -250,7 +250,7 @@ int eval(int p,int q){
 	 }
    else if(check_parentheses(p,q)==true){
 		 return eval(p+1,q-1);
-	 }//
+	 }
 	 else{
         for(int count=p;count<=q;count++){
 							 if(tokens[count].type!=NUMBER){
