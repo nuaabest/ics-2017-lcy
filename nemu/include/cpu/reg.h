@@ -28,8 +28,8 @@ typedef union {
    */
   struct{
     rtlreg_t eax, ecx, edx, ebx, esp, ebp, esi, edi;
-
-    struct{
+		union{
+    		struct{
 						int CF:1;
 						int :5;
 						int ZF:1;
@@ -38,8 +38,10 @@ typedef union {
 					  int IF:1;
 						int :1;
 						int OF:1;
-		}eflags;
-
+						int :20;
+				}eflags;
+				uint32_t flag;
+		};
     vaddr_t eip;
   };
 } CPU_state;
