@@ -18,6 +18,13 @@ make_EHelper(pop) {
   print_asm_template1(pop);
 }
 
+make_EHelper(call){
+	decoding.is_jmp=1;
+//	update_eip();
+  
+	print_asm_template1(call);
+}
+
 make_EHelper(pusha) {
   TODO();
 

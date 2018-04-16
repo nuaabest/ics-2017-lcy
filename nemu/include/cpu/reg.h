@@ -29,7 +29,7 @@ typedef union {
   struct{
     rtlreg_t eax, ecx, edx, ebx, esp, ebp, esi, edi;
 
-    union eflags{
+    struct{
 						int CF:1;
 						int :5;
 						int ZF:1;
@@ -38,7 +38,7 @@ typedef union {
 					  int IF:1;
 						int :1;
 						int OF:1;
-		}flags;
+		}eflags;
 
     vaddr_t eip;
   };
