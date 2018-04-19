@@ -4,6 +4,7 @@ make_EHelper(mov);
 
 make_EHelper(operand_size);
 make_EHelper(sub);
+make_EHelper(add);
 make_EHelper(sbb);
 make_EHelper(push);
 make_EHelper(pop);
