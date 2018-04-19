@@ -4,7 +4,7 @@ make_EHelper(mov);
 
 make_EHelper(or);
 make_EHelper(adc);
-make_EHelper(add);
+make_EHelper(and);
 make_EHelper(cmp);
 make_EHelper(adc);
 make_EHelper(operand_size);
