@@ -7,6 +7,7 @@ make_EHelper(add) {
 }
 
 make_EHelper(sub) {
+	printf("afasf\n");
   rtl_sub(&t2,&id_dest->val,&id_src->val);
 	rtl_sltu(&t3,&id_dest->val,&t2);
 
