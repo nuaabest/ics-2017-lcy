@@ -9,7 +9,7 @@ make_EHelper(add) {
 make_EHelper(sub) {
   rtl_sub(&t2,&id_dest->val,&id_src->val);
 	rtl_sltu(&t3,&id_dest->val,&t2);
-
+  printf("2222\n");
 	rtl_update_ZFSF(&t2,id_dest->width);
 
 	rtl_sltu(&t0,&id_dest->val,&t2);
