@@ -1,7 +1,6 @@
 #include "cpu/exec.h"
 
 make_EHelper(mov);
-
 make_EHelper(or);
 make_EHelper(adc);
 make_EHelper(and);
