@@ -13,17 +13,10 @@ make_EHelper(push) {
 
 make_EHelper(pop) {
   rtl_pop(&t2);
-	//operand_write(id_dest,&t2);
+	operand_write(id_dest,&t2);
 
   print_asm_template1(pop);
 }
-
-/*make_EHelper(call){
-	decoding.is_jmp=1;
-//	update_eip();
-  
-	print_asm_template1(call);
-}*/
 
 make_EHelper(pusha) {
   TODO();
