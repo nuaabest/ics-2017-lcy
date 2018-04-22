@@ -1,5 +1,18 @@
 #include "cpu/exec.h"
-
+make_EHelper(movsx);
+make_EHelper(movzx);
+make_EHelper(not);
+make_EHelper(test);
+make_EHelper(neg);
+make_EHelper(mul);
+make_EHelper(imul);
+make_EHelper(div);
+make_EHelper(idiv);
+make_EHelper(setcc);
+make_EHelper(jmp);
+make_EHelper(jcc);
+make_EHelper(lea);
+make_EHelper(nop);
 make_EHelper(mov);
 make_EHelper(or);
 make_EHelper(adc);
