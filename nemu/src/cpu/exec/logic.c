@@ -7,7 +7,7 @@ make_EHelper(test) {
 }
 
 make_EHelper(and) {
-  TODO();
+  //TODO();
 
   print_asm_template2(and);
 }
