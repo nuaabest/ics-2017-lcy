@@ -43,7 +43,7 @@ void rtl_setcc(rtlreg_t* dest, uint8_t subcode) {
 				break;
 		}
 		case CC_NE:{
-				*dest=(cpu.eflags.ZF);
+				*dest=(!cpu.eflags.ZF);
 				break;
 		}
     default: panic("should not reach here");
