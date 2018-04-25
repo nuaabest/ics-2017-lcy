@@ -41,7 +41,7 @@ static inline make_DopHelper(SI) {
 	if(op->width == 1){
 					printf("/asda/");
      op->simm = instr_fetch(eip,op->width);
-		 op->simm = op->simm << 31;
+		 op->simm = op->simm << 24;
 		 op->simm = op->simm >> 31;
 		 op->simm = op->simm & 0x8000007f;
 	}
