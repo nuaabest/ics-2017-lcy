@@ -23,6 +23,7 @@ void rtl_setcc(rtlreg_t* dest, uint8_t subcode) {
 				break;
 		}
     case CC_E:{
+				printf("/je/\n");
 				*dest=cpu.eflags.ZF;
 				break;
 		}
@@ -40,10 +41,6 @@ void rtl_setcc(rtlreg_t* dest, uint8_t subcode) {
 		}
     case CC_LE:{
 				*dest=(cpu.eflags.ZF||(cpu.eflags.SF!=cpu.eflags.OF));
-				break;
-		}
-		case CC_NE:{
-				*dest=0;
 				break;
 		}
     default: panic("should not reach here");
