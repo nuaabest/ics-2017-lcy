@@ -37,19 +37,19 @@ static inline make_DopHelper(SI) {
    * and assign it to op->simm.
    *
    op->simm = ???
-   */
-	if(op->width==1){
+   *//*
+	if(op->width == 1){
      op->simm = instr_fetch(eip,op->width);
 		 op->simm = op->simm << 31;
 		 op->simm = op->simm >> 31;
 	}
-	else if(op->width==4){
+	else if(op->width == 4){
 		 op->simm = instr_fetch(eip,op->width);
 		 op->simm = op->simm << 28;
 		 op->simm = op->simm >> 31;
-	}
+	}*/
 	//else if(op->width==32){}
-  
+  op->simm=instr_fetch(eip,op->width);
   rtl_li(&op->val, op->simm);
 
 #ifdef DEBUG
