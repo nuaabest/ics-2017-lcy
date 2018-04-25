@@ -30,14 +30,14 @@ typedef union {
     rtlreg_t eax, ecx, edx, ebx, esp, ebp, esi, edi;
 		union{
     		struct{
-						int CF:1;
-						int :5;
-						int ZF:1;
-						int SF:1;
-						int :1;
-					  int IF:1;
-						int :1;
-						int OF:1;
+						unsigned int CF:1;
+						//unsigned int :5;
+						unsigned int ZF:1;
+						unsigned int SF:1;
+						//int :1;
+					  unsigned int IF:1;
+						//int :1;
+						unsigned int OF:1;
 						int :20;
 				}eflags;
 				uint32_t flag;
