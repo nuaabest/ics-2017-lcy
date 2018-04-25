@@ -178,7 +178,7 @@ static inline void rtl_update_ZF(const rtlreg_t* result, int width) {
   // eflags.ZF <- is_zero(result[width * 8 - 1 .. 0])
   if(*result==0) cpu.eflags.ZF=1;
 	else cpu.eflags.ZF=0;
-	printf("result:%d ZF:%d",*result,cpu.eflags.ZF);
+	printf("result:%u ZF:%d",*result,cpu.eflags.ZF);
 }
 
 static inline void rtl_update_SF(const rtlreg_t* result, int width) {
