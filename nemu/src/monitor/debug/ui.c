@@ -93,8 +93,8 @@ static int cmd_si(char *args){
 		return 0;
 	}
 	int i=atoi(arg);
-	if(i>=20000){
-		printf("The number should be allowed under 15\n");
+	if(i>=200000){
+		printf("The number should be allowed under 200000\n");
 		cpu_exec(-1);
 	}
 	else if(i==1||i==0){
