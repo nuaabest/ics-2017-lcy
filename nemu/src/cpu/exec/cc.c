@@ -24,7 +24,7 @@ void rtl_setcc(rtlreg_t* dest, uint8_t subcode) {
 		}
     case CC_E:{
 				printf("ZF=%d\n",cpu.eflags.ZF);
-				*dest=!cpu.eflags.ZF;
+				*dest=1;//!cpu.eflags.ZF;
 				break;
 		}
     case CC_BE:{
