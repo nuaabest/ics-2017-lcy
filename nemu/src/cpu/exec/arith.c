@@ -76,6 +76,7 @@ make_EHelper(adc) {
   rtl_sltu(&t3, &t2, &id_dest->val);
   printf("value=%d\n",cpu.edx);
   rtl_get_CF(&t1);
+	t1=0;
   rtl_add(&t2, &t2, &t1);
   operand_write(id_dest, &t2);
   printf("value1=%d\n",cpu.edx);
