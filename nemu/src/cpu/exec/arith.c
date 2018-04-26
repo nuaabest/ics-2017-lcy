@@ -9,7 +9,7 @@ make_EHelper(add) {
 	rtl_sltu(&t0,&t2,&id_dest->val);
 	//rtl_or(&t0,&t3,&t0);
 
-	printf("%d\n",t0);
+	//printf("%d\n",t0);
 	rtl_set_CF(&t0);
 					  
 	rtl_xor(&t0,&id_dest->val,&id_src->val);
@@ -77,13 +77,11 @@ make_EHelper(adc) {
   rtl_add(&t2, &id_dest->val, &id_src->val);
   rtl_sltu(&t3, &t2, &id_dest->val);
 
-  printf("value=%d\n",cpu.edx);
+  //printf("value=%d\n",cpu.edx);
   rtl_get_CF(&t1);
-
   rtl_add(&t2, &t2, &t1);
   operand_write(id_dest, &t2);
-
-  printf("value1=%d\n",cpu.edx);
+  //printf("value1=%d\n",cpu.edx);
   rtl_update_ZFSF(&t2, id_dest->width);
 
   rtl_sltu(&t0, &t2, &id_dest->val);
