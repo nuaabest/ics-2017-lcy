@@ -154,14 +154,14 @@ void difftest_step(uint32_t eip) {
 					
 					diff=1;
 
-					printf("0x%8x 0x%8x\n",r.eax,cpu.eax);
-					printf("0x%8x 0x%8x\n",r.ebx,cpu.ebx);
-					printf("0x%8x 0x%8x\n",r.ecx,cpu.ecx);
-					printf("0x%8x 0x%8x\n",r.edx,cpu.edx);
-					printf("0x%8x 0x%8x\n",r.esp,cpu.esp);
-					printf("0x%8x 0x%8x\n",r.ebp,cpu.ebp);
-					printf("0x%8x 0x%8x\n",r.esi,cpu.esi);
-					printf("0x%8x 0x%8x\n",r.edi,cpu.edi);
+					printf("0x%08x 0x%08x\n",r.eax,cpu.eax);
+					printf("0x%08x 0x%08x\n",r.ebx,cpu.ebx);
+					printf("0x%08x 0x%08x\n",r.ecx,cpu.ecx);
+					printf("0x%08x 0x%08x\n",r.edx,cpu.edx);
+					printf("0x%08x 0x%08x\n",r.esp,cpu.esp);
+					printf("0x%08x 0x%08x\n",r.ebp,cpu.ebp);
+					printf("0x%08x 0x%08x\n",r.esi,cpu.esi);
+					printf("0x%08x 0x%08x\n",r.edi,cpu.edi);
 
 	}
   if (diff) {
