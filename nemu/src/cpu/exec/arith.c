@@ -72,11 +72,9 @@ make_EHelper(neg) {
 }
 
 make_EHelper(adc) {
-				printf("CF=%d\n",cpu.eflags.CF);
   rtl_add(&t2, &id_dest->val, &id_src->val);
   rtl_sltu(&t3, &t2, &id_dest->val);
   printf("value=%d\n",cpu.edx);
-	printf("CF=%d\n",cpu.eflags.CF);
   rtl_get_CF(&t1);
   rtl_add(&t2, &t2, &t1);
   operand_write(id_dest, &t2);
