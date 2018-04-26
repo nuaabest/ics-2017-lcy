@@ -90,7 +90,7 @@ make_EHelper(adc) {
   rtl_and(&t0, &t0, &t1);
   rtl_msb(&t0, &t0, id_dest->width);
   rtl_set_OF(&t0);
-	printf("value2=%d\n",id_dest->val);
+	printf("value2=%d\n",cpu.edx);
   print_asm_template2(adc);
 }
 
