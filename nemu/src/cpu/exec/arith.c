@@ -77,7 +77,7 @@ make_EHelper(adc) {
   rtl_get_CF(&t1);
   rtl_add(&t2, &t2, &t1);
   operand_write(id_dest, &t2);
-
+  printf("%d\n",id_dest->val);
   rtl_update_ZFSF(&t2, id_dest->width);
 
   rtl_sltu(&t0, &t2, &id_dest->val);
