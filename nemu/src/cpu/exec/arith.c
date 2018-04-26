@@ -56,18 +56,21 @@ make_EHelper(cmp) {
 }
 
 make_EHelper(inc) {
+	printf("1\n");
   TODO();
 
   print_asm_template1(inc);
 }
 
 make_EHelper(dec) {
+				 printf("2\n");
   TODO();
 
   print_asm_template1(dec);
 }
 
 make_EHelper(neg) {
+				 printf("3\n");
   TODO();
 
   print_asm_template1(neg);
