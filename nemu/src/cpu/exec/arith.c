@@ -86,6 +86,7 @@ make_EHelper(dec) {
           t1=-1;					
 	}
 	else{
+					printf("lll\n");
 					rtl_sub(&t1,&id_dest->val,&t0);
 					operand_write(id_dest,&t1);
 
