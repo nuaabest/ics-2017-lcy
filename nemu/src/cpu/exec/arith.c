@@ -208,9 +208,12 @@ make_EHelper(imul1) {
 }
 
 // imul with two operands
-make_EHelper(imul2) {
+make_EHelper(imul2) {			
+	printf("1:%d %d\n",id_src->val,id_dest->val);			
   rtl_sext(&id_src->val, &id_src->val, id_src->width);
+	printf("2:%d %d\n",id_src->val,id_dest->val);
   rtl_sext(&id_dest->val, &id_dest->val, id_dest->width);
+	printf("3:%d %d\n",id_src->val,id_dest->val);
   
 	printf("%d %d %d %d\n",t0,t1,id_dest->val,id_src->val);
 
