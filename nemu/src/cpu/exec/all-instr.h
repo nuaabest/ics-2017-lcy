@@ -22,6 +22,8 @@ make_EHelper(adc);
 make_EHelper(and);
 make_EHelper(cmp);
 make_EHelper(adc);
+make_EHelper(cltd);
+make_EHelper(cwtd);
 make_EHelper(operand_size);
 make_EHelper(sub);
 make_EHelper(add);
