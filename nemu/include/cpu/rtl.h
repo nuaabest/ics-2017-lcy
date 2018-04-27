@@ -141,7 +141,7 @@ static inline void rtl_sext(rtlreg_t* dest, const rtlreg_t* src1, int width) {
 	int x;
 	x=*src1<<(32-width*8);
 	x=x>>(31);
-	x=x&0x1;
+	//x=x&0x1;
 	*dest=x;
 }
 
