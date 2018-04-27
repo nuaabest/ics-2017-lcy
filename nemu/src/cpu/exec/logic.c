@@ -74,8 +74,12 @@ make_EHelper(setcc) {
 }
 
 make_EHelper(not) {
-				printf("not");
-  TODO();
+				//printf("not");
+  //TODO();
+	rtl_not(&id_dest->val);
+	rtl_update_ZFSF(&t0,id_dest->width);
+	rtl_set_OF(&tzero);
+	rtl_set_CF(&tzero);
 
   print_asm_template1(not);
 }
