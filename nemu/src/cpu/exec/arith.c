@@ -82,10 +82,10 @@ make_EHelper(dec) {
 				 //printf("2\n");
   //TODO();
 	t0=1;
-	if(id_dest->val==0){
-          t1=-1;					
-	}
-	else{
+	//if(id_dest->val==0){
+    //      t1=-1;					
+	//}
+	//else{
 					printf("lll\n");
 					rtl_sub(&t1,&id_dest->val,&t0);
 					operand_write(id_dest,&t1);
@@ -102,7 +102,7 @@ make_EHelper(dec) {
 					rtl_msb(&t3,&t3,id_dest->width);
 					rtl_set_OF(&t3);
 
-	}
+	//}
 
   print_asm_template1(dec);
 }
