@@ -19,28 +19,33 @@ make_EHelper(pop) {
 }
 
 make_EHelper(pusha) {
+				printf("3");
   TODO();
 
   print_asm("pusha");
 }
 
 make_EHelper(popa) {
+				printf("4");
   TODO();
 
   print_asm("popa");
 }
 
 make_EHelper(leave) {
+				printf("5");
   TODO();
 
   print_asm("leave");
 }
 
 make_EHelper(cltd) {
+				printf("6");
   if (decoding.is_operand_size_16) {
     TODO();
   }
   else {
+					printf("6");
     TODO();
   }
 
@@ -49,9 +54,11 @@ make_EHelper(cltd) {
 
 make_EHelper(cwtl) {
   if (decoding.is_operand_size_16) {
+					printf("7");
     TODO();
   }
   else {
+					printf("8");
     TODO();
   }
 
