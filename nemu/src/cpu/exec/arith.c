@@ -95,7 +95,7 @@ make_EHelper(dec) {
 					rtl_sltu(&t2,&id_dest->val,&t1);
 					rtl_set_CF(&t2);
 
-					rtl_xor(&t3,&id_dest->val,&id_src->val);
+					rtl_xor(&t3,&id_dest->val,&t0);
 					rtl_not(&t3);
 					rtl_xor(&t2,&id_dest->val,&t1);
 					rtl_and(&t3,&t2,&t3);
