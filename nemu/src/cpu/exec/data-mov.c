@@ -33,8 +33,10 @@ make_EHelper(popa) {
 }
 
 make_EHelper(leave) {
-				printf("5");
-  TODO();
+			//printf("5");
+  //TODO();
+	cpu.esp=cpu.ebp;
+	rtl_pop(&cpu.ebp);
 
   print_asm("leave");
 }
@@ -55,13 +57,12 @@ make_EHelper(cltd) {
 make_EHelper(cwtl) {
   if (decoding.is_operand_size_16) {
 					printf("7");
-    
+
   }
   else {
-					printf("8");
     //TODO();
 		if(cpu.eax<0){
-						cpu.edx=0xFFFFFFFF;
+				cpu.edx=0xFFFFFFFF;
 		}
 		else cpu.edx=0x0;
   }
