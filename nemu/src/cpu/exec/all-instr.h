@@ -33,6 +33,7 @@ make_EHelper(push);
 make_EHelper(pop);
 make_EHelper(xor);
 make_EHelper(call);
+make_EHelper(call_rm);
 make_EHelper(ret);
 make_EHelper(inv);
 make_EHelper(dec);
