@@ -20,6 +20,7 @@ make_EHelper(add) {
 	rtl_set_OF(&t0);
   printf("eax:%d\n",cpu.eax);
   print_asm_template2(add);
+	printf("eax:%d\n",cpu.eax);
 }
 
 make_EHelper(sub) {
