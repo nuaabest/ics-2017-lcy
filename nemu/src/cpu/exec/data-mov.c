@@ -71,12 +71,13 @@ make_EHelper(cwtl) {
 }
 
 make_EHelper(movsx) {
-	printf("eax1:0x%8x\n",cpu.eax);
+	printf("eax1:0x%08x\n",cpu.eax);
   id_dest->width = decoding.is_operand_size_16 ? 2 : 4;
   rtl_sext(&t2, &id_src->val, id_src->width);
-	printf("eax2:0x%8x\n",cpu.eax);
+	printf("eax2:0x%08x\n",cpu.eax);
   operand_write(id_dest, &t2);
   print_asm_template2(movsx);
+	printf("eax2:0x%08x\n",cpu.eax);
 }
 
 make_EHelper(movzx) {
