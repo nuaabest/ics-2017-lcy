@@ -55,11 +55,15 @@ make_EHelper(cltd) {
 make_EHelper(cwtl) {
   if (decoding.is_operand_size_16) {
 					printf("7");
-    TODO();
+    
   }
   else {
 					printf("8");
-    TODO();
+    //TODO();
+		if(cpu.eax<0){
+						cpu.edx=0xFFFFFFFF;
+		}
+		else cpu.edx=0x0;
   }
 
   print_asm(decoding.is_operand_size_16 ? "cbtw" : "cwtl");
