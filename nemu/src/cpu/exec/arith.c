@@ -2,11 +2,11 @@
 
 make_EHelper(add) {
   //TODO();
-	printf("%d  %d   eax:%d\n",id_dest->val,id_src->val,cpu.eax);
+	//printf("%d  %d   eax:%d\n",id_dest->val,id_src->val,cpu.eax);
   rtl_add(&t2,&id_dest->val,&id_src->val);
   operand_write(id_dest,&t2);
 	rtl_update_ZFSF(&t2,id_dest->width);
-   printf("%d  t2:%d   eax:%d\n",id_dest->val,t2,cpu.eax);
+  //printf("%d  t2:%d   eax:%d\n",id_dest->val,t2,cpu.eax);
 	rtl_sltu(&t0,&t2,&id_dest->val);
 	//rtl_or(&t0,&t3,&t0);
 	//printf("%d\n",t0);
