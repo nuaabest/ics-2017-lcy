@@ -18,9 +18,8 @@ make_EHelper(add) {
 	rtl_and(&t0,&t0,&t1);
   rtl_msb(&t0,&t0,id_dest->width);
 	rtl_set_OF(&t0);
-  printf("eax:%d\n",cpu.eax);
+
   print_asm_template2(add);
-	printf("eax:%d\n",cpu.eax);
 }
 
 make_EHelper(sub) {
