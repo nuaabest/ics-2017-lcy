@@ -143,11 +143,12 @@ static inline void rtl_sext(rtlreg_t* dest, const rtlreg_t* src1, int width) {
 	*dest=(*src1<<(32-width*8));
 	printf("dest:0x%08x\n",*dest);
 	*dest=(*dest>>(32-width*8));
+	int flag=*dest&0x1;
 	if(width==1){
-					*dest=*dest|0xffffff00;
+					if(flag==1) *dest=*dest|0xffffff00;
 	}
 	else if(width==2){
-					*dest=*dest|0xffff0000;
+					if(flag==1) *dest=*dest|0xffff0000;
 	}
 	printf("dest:0x%08x\n",*dest);
 	//printf("%d\n",*dest);
