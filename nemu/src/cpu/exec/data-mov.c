@@ -42,13 +42,17 @@ make_EHelper(leave) {
 }
 
 make_EHelper(cltd) {
-				printf("6");
+				//printf("6");
+	int m=cpu.eax;
   if (decoding.is_operand_size_16) {
-    TODO();
+    //TODO();
+		m=m<<8;
+		m=m>>8;
   }
   else {
-					printf("6");
-    TODO();
+					//printf("6");
+    m=m<<16;
+    m=m>>16;		
   }
 
   print_asm(decoding.is_operand_size_16 ? "cwtl" : "cltd");
@@ -56,7 +60,6 @@ make_EHelper(cltd) {
 
 make_EHelper(cwtl) {
   if (decoding.is_operand_size_16) {
-					printf("7");
 
   }
   else {
