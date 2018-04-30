@@ -109,8 +109,22 @@ make_EHelper(dec) {
 }
 
 make_EHelper(neg) {
-				 printf("3\n");
-  TODO();
+  //TODO();
+	if(id_dest->val==0){
+					cpu.eflags.CF=0;
+	}
+	else cpu.eflags.CF=1;
+	t1=(-id_dest->val);
+	operand_write(id_dest,&t1);
+
+	rtl_update_ZFSF(&t1,id_dest->width);
+
+	rtl_xor(&t3,&id_dest->val,&t1);
+	rtl_not(&t3);
+	rtl_xor(&t2,&id_dest->val,&t1);
+	rtl_and(&t3,&t2,&t3);
+	rtl_msb(&t3,&t3,id_dest->width);
+	rtl_set_OF(&t3);
 
   print_asm_template1(neg);
 }
