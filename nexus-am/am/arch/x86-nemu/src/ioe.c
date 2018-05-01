@@ -26,7 +26,7 @@ void _draw_rect(const uint32_t *pixels, int x, int y, int w, int h) {
 	//p=fb+x+y*400;
 	//while(x>0&&x<400&&y>0&&y<300){
 					for(int i=0;i<h;i++){
-									memcpy(fb+(y+1*400+x),pixels+i*w,w*4);
+									memcpy(fb+(y+i)*400+x,pixels+i*w,w*4);
 					}
 	//}
 }
