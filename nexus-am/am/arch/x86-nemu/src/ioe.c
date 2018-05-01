@@ -22,13 +22,13 @@ _Screen _screen = {
 extern void* memcpy(void *, const void *, int);
 
 void _draw_rect(const uint32_t *pixels, int x, int y, int w, int h) {
-	//uint32_t * p=(uint32*)0x40000;
-	
-	/*while(x<400&&x>0&&y<300&&y>0&&w<32&&w>0){
+	uint32_t * p=(uint32_t *)0x40000;
+	p=fb+x+y*400;
+	while(x>0&&x<400&&y>0&&y<300){
 					for(int i=0;i<h;i++){
-									//memcpy();
+									memcpy(p,pixels+i+w,w);
 					}
-	}*/
+	}
 }
 
 void _draw_sync() {
