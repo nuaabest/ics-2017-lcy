@@ -60,7 +60,7 @@ make_EHelper(cltd) {
 
 make_EHelper(cwtl) {
   if (decoding.is_operand_size_16) {
-
+      TODO();
   }
   else {
     //TODO();
