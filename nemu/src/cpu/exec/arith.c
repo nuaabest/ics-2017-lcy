@@ -80,7 +80,6 @@ make_EHelper(inc) {
 }
 
 make_EHelper(dec) {
-				 //printf("2\n");
   //TODO();
 	t0=1;
 	//if(id_dest->val==0){
@@ -104,7 +103,6 @@ make_EHelper(dec) {
 					rtl_set_OF(&t3);
 
 	//}
-
   print_asm_template1(dec);
 }
 
