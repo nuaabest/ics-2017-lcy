@@ -3,7 +3,7 @@
 
 //#define DEBUG
 //#define DIFF_TEST
-//volatile static int dummy
+
 /* You will define this macro in PA2 */
 #define HAS_IOE
 
@@ -22,6 +22,7 @@ typedef uint32_t paddr_t;
 typedef uint32_t vaddr_t;
 
 typedef uint16_t ioaddr_t;
+volatile static int dummy;
 
 #define false 0
 #define true 1
