@@ -24,7 +24,7 @@ extern void* memcpy(void *, const void *, int);
 void _draw_rect(const uint32_t *pixels, int x, int y, int w, int h) {
 	uint32_t * p=(uint32_t *)0x40000;
 	p=fb+x+y*400;
-	while(x>0&&x<400&&y>0&&y<300){
+	if(x>0&&x<400&&y>0&&y<300){
 					for(int i=0;i<h;i++){
 									memcpy(p+i*400,pixels+i*w,w*4);
 					}
